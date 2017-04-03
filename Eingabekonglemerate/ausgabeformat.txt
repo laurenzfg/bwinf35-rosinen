@@ -1,0 +1,14 @@
+# Ausgabeformat, am Beispiel von Kreis 08
+# erste Zeile: Anzahl der Knoten in der Teilmenge
+8
+# zweite Zeile: Gesamtwert der Knoten
+4.0
+# folgende Zeilen: Nummern der Knoten
+0
+1
+2
+3
+4
+5
+6
+7
