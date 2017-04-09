@@ -1,6 +1,6 @@
 package de.laurenzgrote.bundeswettbewerb35.rosinen;
 
-import de.laurenzgrote.bundeswettbewerb35.rosinen.util.DPMap;
+import de.laurenzgrote.bundeswettbewerb35.rosinen.util.BufferedSet;
 
 import java.util.*;
 
@@ -96,37 +96,40 @@ class Conglomerate {
     }
 
     String bestBuy() {
-        // DP-Map für Berechnung der optimalen Kombination
-        DPMap<Double, BitSet> dpMap = new DPMap<>();
+        // Set mit allen Möglichen käufen
+        BufferedSet<BitSet> bufferedSet = new BufferedSet<>();
 
-        BitSet nothingPurchased = new BitSet(companyCount);
+        BitSet initialStatus = new BitSet(companyCount);
 
-        dpMap.put(0.0, nothingPurchased);
-        dpMap.flushStack();
+        bufferedSet.put(initialStatus);
+        bufferedSet.flushBuffer();
 
-        double bestCombinationValue = 0.0;
-        BitSet bestCombinationCompanys = nothingPurchased;
+        // Wert der besten Teilmenge + entsprechende Teilmenge
+        double bestCombinationValue = getValue(initialStatus);
+        BitSet bestCombinationCompanys = initialStatus;
 
+        // Für jede Firma
         for (int i = 0; i < companyCount; i++) {
+            // Entsprechende Dependencys laden
             BitSet selectedPurchase = connectedCompanys[i];
-            for (Set<BitSet> bsSet : dpMap.getValues()) {
-                for (BitSet bs : bsSet) {
-                    BitSet newSubset = (BitSet) bs.clone();
-                    // Verknüpfen der beiden Käufe
-                    newSubset.or(selectedPurchase);
-                    // Berechnen des Wertes der neuen Teilmenge
-                    double combinedBSValue = getValue(newSubset);
-                    // Neue Teilemenge auf die SChreibliste der DPMap setzen
-                    dpMap.put(combinedBSValue, newSubset);
-                    // Haben wir ein neues Maximum gefunden?
-                    if (combinedBSValue > bestCombinationValue) {
-                        bestCombinationValue = combinedBSValue;
-                        bestCombinationCompanys = newSubset;
-                    }
+            // Und mit allen bisher errechneten Möglichkeiten Verknüpfen
+            for (BitSet bs : bufferedSet.getSet()) {
+                // Bisher errechnete Möglichkeit für Kombi klonen
+                BitSet newSubset = (BitSet) bs.clone();
+                // Verknüpfen der beiden Käufe
+                newSubset.or(selectedPurchase);
+                // Berechnen des Wertes der neuen Teilmenge
+                double combinedBSValue = getValue(newSubset);
+                // Neue Teilemenge auf die Schreibliste der BufferedSet setzen
+                bufferedSet.put(newSubset);
+                // Haben wir ein neues Maximum gefunden?
+                if (combinedBSValue > bestCombinationValue) {
+                    bestCombinationValue = combinedBSValue;
+                    bestCombinationCompanys = newSubset;
                 }
             }
             // Schreiben der neuen Einkäufe
-            dpMap.flushStack();
+            bufferedSet.flushBuffer();
         }
 
         // Output-Teil
