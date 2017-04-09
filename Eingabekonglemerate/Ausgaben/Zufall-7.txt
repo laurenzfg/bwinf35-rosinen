@@ -1,0 +1,5 @@
+# Anzahl der Knoten in der Teilmenge
+0
+# Gesamtwert der Knoten
+0.0
+# Nummern der Knoten

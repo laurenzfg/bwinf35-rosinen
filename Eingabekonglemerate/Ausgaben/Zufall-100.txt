@@ -1,0 +1,26 @@
+# Anzahl der Knoten in der Teilmenge
+21
+# Gesamtwert der Knoten
+613.0
+# Nummern der Knoten
+0
+2
+4
+10
+15
+20
+25
+29
+34
+41
+47
+53
+57
+62
+63
+66
+67
+81
+96
+97
+98
