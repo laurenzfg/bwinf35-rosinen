@@ -7,7 +7,16 @@ import java.io.*;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        runInteractively();
+        if (args.length > 0) {
+            // Batch-Modus
+            File inputFile = new File(args[0]);
+            Conglomerate conglomerate = conglomerateFromFile(inputFile);
+            String bestBuy = conglomerate.bestBuy();
+            System.out.print(bestBuy);
+        } else {
+            // Interaktiver Modus
+            runInteractively();
+        }
     }
 
     private static void runInteractively() throws IOException {
