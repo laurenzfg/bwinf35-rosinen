@@ -65,19 +65,17 @@ public class Main {
                 double val = Double.parseDouble(lineSplit[1]);
                 companys[id] = new Company(id, val);
             }
-            // Kongelemerat
-            c = new Conglomerate(companys);
             // Dependencies
             String line = getNextLine(br);
             while (line != null) {
                 String[] lineSplit = line.split(" ");
                 int ifYouBuyThat = Integer.parseInt(lineSplit[0]);
                 int buyThat = Integer.parseInt(lineSplit[1]);
-                c.addDependency(ifYouBuyThat, buyThat);
+                companys[ifYouBuyThat].addDependency(buyThat);
                 line = getNextLine(br);
             }
-            // Konglomerat durchrechnen
-            c.calculateDependencyLists();
+            // Kongelemerat erstellen
+            c = new Conglomerate(companys);
         } catch (IOException e) {
             System.err.println("Eingegebene Datei nicht gefunden oder sonstiger IO-Fehler!");
         } catch (NumberFormatException e) {

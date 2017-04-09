@@ -6,11 +6,6 @@ import java.util.*;
 
 /**
  * Repraesentation eines Firmenkonglemerates
- * Klasse insofern schlecht implementiert, dass die
- * Konsumentenklasse nach dem Speichern der Dependencys
- * calculateDependencyLists() aufrufen muss.
- * Da die Klasse aber intern ist und außerhalb des Paketes nicht genutzt wird,
- * ist das i.O..
  */
 class Conglomerate {
     // Anzahl der Firmen im Konglomerat
@@ -31,14 +26,9 @@ class Conglomerate {
 
         // Ein BitSet je Firma
         connectedCompanys = new BitSet[companyCount];
-    }
 
-    /**
-     * @param ifYouBuyThat
-     * @param buyThat
-     */
-    void addDependency(int ifYouBuyThat, int buyThat) {
-        companys[ifYouBuyThat].addDependency(buyThat);
+        // Druchrechnen der vollstädnigen Abhängigkeitsbäume
+        calculateDependencyLists();
     }
 
     private List<Integer> getDependentCompanys(int of) {
@@ -62,7 +52,7 @@ class Conglomerate {
         return val;
     }
 
-    void calculateDependencyLists() {
+    private void calculateDependencyLists() {
         for (int of = 0; of < companyCount; of++) {
             // Bitset als VisitedArray
             BitSet includedCompanys = new BitSet(companyCount);
