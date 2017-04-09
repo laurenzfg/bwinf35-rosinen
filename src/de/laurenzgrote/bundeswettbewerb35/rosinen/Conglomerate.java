@@ -1,39 +1,36 @@
 package de.laurenzgrote.bundeswettbewerb35.rosinen;
 
+import de.laurenzgrote.bundeswettbewerb35.rosinen.util.DPMap;
+
 import java.util.*;
 
 /**
  * Repraesentation eines Firmenkonglemerates
+ * Klasse insofern schlecht implementiert, dass die
+ * Konsumentenklasse nach dem Speichern der Dependencys
+ * calculateDependencyLists() aufrufen muss.
+ * Da die Klasse aber intern ist und außerhalb des Paketes nicht genutzt wird,
+ * ist das i.O..
  */
-public class Conglomerate {
+class Conglomerate {
     // Anzahl der Firmen im Konglomerat
     private int companyCount;
-    // Adjazenzlisten über die Abhängigkeiten beim Unternehmenskauf
+    // Repräsentation einer Firma im Speicjher
     private Company[] companys;
-    // Liste der vollständigen Dependencys
+    // BitSet[0..companyCount] über alle Firmen die mit der Firma n mit erworben werden müssen
+    // (1) Firmenkauf bei Kauf von n erforderlich (0) Firmenkauf bei Kauf von n optional
     private BitSet[] connectedCompanys;
-    // Umgekerhter Dependency-Graph
-    private List<Integer>[] revAdj;
-    // DP-Array halt
-    private Set<BitSet>[] dpArray;
 
+    /**
+     * @param companys Array der Firmen
+     */
     @SuppressWarnings("unchecked")
-    public Conglomerate(Company[] companys) {
+    Conglomerate(Company[] companys) {
         this.companys = companys;
         companyCount = companys.length;
 
+        // Ein BitSet je Firma
         connectedCompanys = new BitSet[companyCount];
-        revAdj = new List[companyCount];
-        // Initialiseren von leeren ArrayLists
-        for (int i = 0; i < companyCount; i++) {
-            revAdj[i] = new ArrayList<>();
-        }
-        int maxPossibleRevenue = calculateMaxPossibleRevenue();
-        dpArray = new Set[maxPossibleRevenue];
-        // Initialisieren von leeren DP-Sets
-        for (int i = 0; i < maxPossibleRevenue; i++) {
-            dpArray[i] = new HashSet<>();
-        }
     }
 
     private int calculateMaxPossibleRevenue() {
@@ -47,38 +44,36 @@ public class Conglomerate {
         return maxPossibleRevenue;
     }
 
-    public void addDependency (int ifYouBuyThat, int buyThat) {
+    /**
+     * @param ifYouBuyThat
+     * @param buyThat
+     */
+    void addDependency(int ifYouBuyThat, int buyThat) {
         companys[ifYouBuyThat].addDependency(buyThat);
-        // Umgedrehte Dependency einfügen
-        revAdj[buyThat].add(ifYouBuyThat);
     }
 
-    public boolean isDependent(int bought, int candidate) {
-        return companys[bought].isDependent(candidate);
-    }
-
-    public List<Integer> getDependentCompanys(int of) {
+    private List<Integer> getDependentCompanys(int of) {
         return companys[of].getDependencys();
     }
 
-    public double getImmediateValue (int of) {
+    private double getImmediateValue(int of) {
         return companys[of].getValue();
     }
 
-    public double getImpliedValue (int of) {
+    private double getImpliedValue(int of) {
         BitSet companys = connectedCompanys[of];
         return getValue(companys);
     }
 
-    private int getValue(BitSet bs) {
-        int val = 0;
+    private double getValue(BitSet bs) {
+        double val = 0;
         for (int i = 0; i < companyCount; i++)
             if (bs.get(i))
                 val += getImmediateValue(i);
         return val;
     }
 
-    public void calculateDependencyLists() {
+    void calculateDependencyLists() {
         for (int of = 0; of < companyCount; of++) {
             // Bitset als VisitedArray
             BitSet includedCompanys = new BitSet(companyCount);
@@ -100,26 +95,54 @@ public class Conglomerate {
         }
     }
 
-    public int bestBuy() {
-        int bestCombination = 0;
+    String bestBuy() {
+        // DP-Map für Berechnung der optimalen Kombination
+        DPMap<Double, BitSet> dpMap = new DPMap<>();
+
         BitSet nothingPurchased = new BitSet(companyCount);
-        dpArray[0].add(nothingPurchased);
+
+        dpMap.put(0.0, nothingPurchased);
+        dpMap.flushStack();
+
+        double bestCombinationValue = 0.0;
+        BitSet bestCombinationCompanys = nothingPurchased;
+
         for (int i = 0; i < companyCount; i++) {
             BitSet selectedPurchase = connectedCompanys[i];
-            Set<BitSet>[] newDPArray = dpArray.clone();
-            for (int j = 0; j <= bestCombination; j++) {
-                for (BitSet bs : dpArray[j]) {
-                    BitSet combinedBS = (BitSet) bs.clone();
-                    combinedBS.or(selectedPurchase);
-                    int combinedBSValue = getValue(combinedBS);
-                    if (combinedBSValue > 0)
-                        newDPArray[combinedBSValue].add(combinedBS);
-                    bestCombination = Math.max(bestCombination, combinedBSValue);
+            for (Set<BitSet> bsSet : dpMap.getValues()) {
+                for (BitSet bs : bsSet) {
+                    BitSet newSubset = (BitSet) bs.clone();
+                    // Verknüpfen der beiden Käufe
+                    newSubset.or(selectedPurchase);
+                    // Berechnen des Wertes der neuen Teilmenge
+                    double combinedBSValue = getValue(newSubset);
+                    // Neue Teilemenge auf die SChreibliste der DPMap setzen
+                    dpMap.put(combinedBSValue, newSubset);
+                    // Haben wir ein neues Maximum gefunden?
+                    if (combinedBSValue > bestCombinationValue) {
+                        bestCombinationValue = combinedBSValue;
+                        bestCombinationCompanys = newSubset;
+                    }
                 }
             }
-            dpArray = newDPArray;
+            // Schreiben der neuen Einkäufe
+            dpMap.flushStack();
         }
-        return bestCombination;
+
+        // Output-Teil
+        StringBuilder sb = new StringBuilder();
+        sb.append("# Anzahl der Knoten in der Teilmenge\n");
+        sb.append(bestCombinationCompanys.cardinality());
+        sb.append("\n# Gesamtwert der Knoten\n");
+        sb.append(bestCombinationValue);
+        sb.append("\n# Nummern der Knoten\n");
+        for (int i = 0; i < companyCount; i++) {
+            if (bestCombinationCompanys.get(i)) {
+                sb.append(i);
+                sb.append("\n");
+            }
+        }
+        return sb.toString();
     }
 
     /**
