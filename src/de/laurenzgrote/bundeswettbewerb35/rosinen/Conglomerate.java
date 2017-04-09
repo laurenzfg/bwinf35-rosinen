@@ -19,71 +19,107 @@ class Conglomerate {
     /**
      * @param companys Array der Firmen
      */
-    @SuppressWarnings("unchecked")
     Conglomerate(Company[] companys) {
         this.companys = companys;
         companyCount = companys.length;
 
-        // Ein BitSet je Firma
+        // Ein BitSet für die vollständigen Abhängigkeitslisten je Firma
         connectedCompanys = new BitSet[companyCount];
 
-        // Druchrechnen der vollstädnigen Abhängigkeitsbäume
-        calculateDependencyLists();
+        // Berechnen der vollständigen Abhängigkeitslisten
+        calculateDependencyBitSets();
     }
 
+    /**
+     * Berechnet die vollständige Abhängigkeitsliste jeder Firma im Konglomerat
+     */
+    private void calculateDependencyBitSets() {
+        // FÜR jede Firma
+        for (int of = 0; of < companyCount; of++) {
+            // Die Abhängigkeiten einer Firma entsprechen den Firmen, die bei einer DFS
+            // von der Startfirma besucht werden
+            // --> Abhängigkeitsliste == DFS-Visited-Array
+            BitSet includedCompanys = new BitSet(companyCount);
+            // Stack für DFS
+            Stack<Integer> s = new Stack<>();
+            s.add(of);
+
+            // Standard-Tiefensuche
+            while (!s.empty()) {
+                int cur = s.pop();
+                // Sodenn die Firma noch nicht besucht wurde
+                if (!includedCompanys.get(cur)) {
+                    // Speicher sie als besucht
+                    includedCompanys.set(cur, true);
+                    // Und setze alle von ihr abhängigen Firmen auf den Zu-Besuchen-Stack
+                    s.addAll(getDependentCompanys(cur));
+                }
+            }
+            // Speichern des DFS-Visited-Arrays im entsprechenden Feld der Klasse
+            connectedCompanys[of] = includedCompanys;
+        }
+    }
+
+    /**
+     * @param of Ausgangsfirma
+     * @return Liste der von of unmittelbar abhängigen Firmen
+     */
     private List<Integer> getDependentCompanys(int of) {
         return companys[of].getDependencys();
     }
 
+    /**
+     * @param of Ausgangsfirma
+     * @return Einzelwert der Firma of
+     */
     private double getImmediateValue(int of) {
         return companys[of].getValue();
     }
 
+    /**
+     * @param of Ausgangsfirma
+     * @return Wert einer Firma unter Berücksichtigung all ihrer Abhängigkeiten
+     */
     private double getImpliedValue(int of) {
+        // Vorberechnete vollständige Abhängigkeitsliste laden
         BitSet companys = connectedCompanys[of];
+        // Wert dieser Liste berechnen
         return getValue(companys);
     }
 
+    /**
+     * @param bs vollständie Abhängigkeitsliste
+     * @return Wert der vollständigen Abhängigkeitsliste
+     */
     private double getValue(BitSet bs) {
+        // Counter
         double val = 0;
+        // Alle Firmen, die in der Abhängikeitsliste enthalten sind auf den Counter aufaddieren
         for (int i = 0; i < companyCount; i++)
             if (bs.get(i))
                 val += getImmediateValue(i);
         return val;
     }
 
-    private void calculateDependencyLists() {
-        for (int of = 0; of < companyCount; of++) {
-            // Bitset als VisitedArray
-            BitSet includedCompanys = new BitSet(companyCount);
-            // Stack für Tiefensuche
-            Stack<Integer> s = new Stack<>();
-            s.add(of);
-
-            // Tiefensuche: GO
-            while (!s.empty()) {
-                int cur = s.pop();
-                if (!includedCompanys.get(cur)) {
-                    includedCompanys.set(cur, true);
-                    s.addAll(getDependentCompanys(cur));
-                }
-            }
-
-            // Speichern der Liste
-            connectedCompanys[of] = includedCompanys;
-        }
-    }
-
+    /**
+     * Berechnen der besten Teilmenge
+     * @return Beste Teilmenge im BwInf-Ausgabeformat
+     */
     String bestBuy() {
-        // Set mit allen Möglichen käufen
+        // Wir brauchen für diese vollständige Suche ein Liste der bekannten Statusse
+        // Duden sagt es heißt Status, aber das ist mir egal
+        // Wer kann dan noch unterscheiden ob es Plural oder Singular ist?
+        // Deutsch ist nichtdeterministisch!
         BufferedSet<BitSet> bufferedSet = new BufferedSet<>();
 
+        // Initialer gekaufte Firmen
         BitSet initialStatus = new BitSet(companyCount);
 
+        // Das ist dann der erste bekannte Status
         bufferedSet.put(initialStatus);
-        bufferedSet.flushBuffer();
+        bufferedSet.flushBuffer(); // Schreiben des Buffers ins Set
 
-        // Wert der besten Teilmenge + entsprechende Teilmenge
+        // Wert der besten Teilmenge + entsprechende Teilmenge muss seperat gespeichert werden
         double bestCombinationValue = getValue(initialStatus);
         BitSet bestCombinationCompanys = initialStatus;
 
@@ -91,9 +127,9 @@ class Conglomerate {
         for (int i = 0; i < companyCount; i++) {
             // Entsprechende Dependencys laden
             BitSet selectedPurchase = connectedCompanys[i];
-            // Und mit allen bisher errechneten Möglichkeiten Verknüpfen
+            // Und mit allen bisher errechneten Statussen logisch verknüpfen
             for (BitSet bs : bufferedSet.getSet()) {
-                // Bisher errechnete Möglichkeit für Kombi klonen
+                // Bisher errechneten Status klonen
                 BitSet newSubset = (BitSet) bs.clone();
                 // Verknüpfen der beiden Käufe
                 newSubset.or(selectedPurchase);
@@ -103,18 +139,19 @@ class Conglomerate {
                 bufferedSet.put(newSubset);
                 // Haben wir ein neues Maximum gefunden?
                 if (combinedBSValue > bestCombinationValue) {
+                    // Weil dann sollten wir das speichern
                     bestCombinationValue = combinedBSValue;
                     bestCombinationCompanys = newSubset;
                 }
             }
-            // Schreiben der neuen Einkäufe
+            // Schreiben des Buffers ins Set
             bufferedSet.flushBuffer();
         }
 
         // Output-Teil
         StringBuilder sb = new StringBuilder();
         sb.append("# Anzahl der Knoten in der Teilmenge\n");
-        sb.append(bestCombinationCompanys.cardinality());
+        sb.append(bestCombinationCompanys.cardinality()); // Coole Funktion oder?
         sb.append("\n# Gesamtwert der Knoten\n");
         sb.append(bestCombinationValue);
         sb.append("\n# Nummern der Knoten\n");
@@ -128,7 +165,7 @@ class Conglomerate {
     }
 
     /**
-     * @return Darstellung des Konglomerats als String
+     * @return Darstellung des Konglomerats als String (für Debugzwecke)
      */
     @Override
     public String toString() {
