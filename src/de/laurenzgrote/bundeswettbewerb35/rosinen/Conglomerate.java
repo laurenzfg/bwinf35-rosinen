@@ -33,17 +33,6 @@ class Conglomerate {
         connectedCompanys = new BitSet[companyCount];
     }
 
-    private int calculateMaxPossibleRevenue() {
-        int maxPossibleRevenue = 0;
-        for (int i = 0; i < companyCount; i++) {
-            double val = getImmediateValue(i);
-            if (val > 0.0) {
-                maxPossibleRevenue += val;
-            }
-        }
-        return maxPossibleRevenue;
-    }
-
     /**
      * @param ifYouBuyThat
      * @param buyThat
