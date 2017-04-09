@@ -2,14 +2,16 @@ package de.laurenzgrote.bundeswettbewerb35.rosinen;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        runInteractively();
+    }
+
+    private static void runInteractively() throws IOException {
+        BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileFilter(new FileFilter() {
             @Override
@@ -23,18 +25,32 @@ public class Main {
             }
 
         });
+
         int returnVal = fileChooser.showOpenDialog(null);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
-            File file = fileChooser.getSelectedFile();
-            Conglomerate conglomerate = conglomerateFromFile(file);
-            System.out.println(conglomerate.toString());
-            System.out.println(conglomerate.bestBuy());
+            File inputFile = fileChooser.getSelectedFile();
+            Conglomerate conglomerate = conglomerateFromFile(inputFile);
+            String bestBuy = conglomerate.bestBuy();
+            System.out.println(bestBuy);
+
+            System.out.print("Ideale Teilmenge Speichern (y/n): ");
+            if (console.readLine().charAt(0) == 'y') {
+                returnVal = fileChooser.showSaveDialog(null);
+                if (returnVal == JFileChooser.APPROVE_OPTION) {
+                    File outputFile = fileChooser.getSelectedFile();
+                    PrintWriter pw = new PrintWriter(outputFile);
+                    pw.write(bestBuy);
+                    pw.close();
+                } else {
+                    System.err.println("Nutzer hat den Speichervorgang abgebrochen!");
+                }
+            }
         } else {
-            System.err.println("Nutzer hat den Vorgang abgebrochen!");
+            System.err.println("Nutzer hat den Öffnungsvorgang abgebrochen!");
         }
     }
 
-    public static Conglomerate conglomerateFromFile (File file) {
+    private static Conglomerate conglomerateFromFile(File file) {
         Conglomerate c = null;
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
