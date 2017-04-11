@@ -1,0 +1,8 @@
+\begin{tikzpicture}[scale=0.75]
+	\graph [nodes={draw, circle}, no placement] {
+		F[x=3, y=0] -> {R[x=0, y=2], E[x=6, y=2]};
+		Z[x=5, y=4] -> {A[x=3,y=4], B[x=4, y=2]};
+		A -> {C[x=3, y=6] -> {D[x=0, y=4], R}};
+		B -> {E,I[x=2, y=2] -> {R}};	
+	};
+\end{tikzpicture}
