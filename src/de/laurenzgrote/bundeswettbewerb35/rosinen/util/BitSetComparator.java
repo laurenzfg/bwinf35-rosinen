@@ -1,22 +1,21 @@
 package de.laurenzgrote.bundeswettbewerb35.rosinen.util;
 
-import de.laurenzgrote.bundeswettbewerb35.rosinen.Conglomerate;
-
 import java.util.BitSet;
 import java.util.Comparator;
+import java.util.Map;
 
 public class BitSetComparator implements Comparator<BitSet> {
     // Refernz auf Konglomerat zur Berechnung nötig
-    private Conglomerate conglomerate;
+    private Map<BitSet, Double> valueMap;
 
-    public BitSetComparator(Conglomerate conglomerate) {
-        this.conglomerate = conglomerate;
+    public BitSetComparator(Map<BitSet, Double> valueMap) {
+        this.valueMap = valueMap;
     }
 
     @Override
     public int compare(BitSet ao, BitSet bo) {
-        double a = conglomerate.getValue(ao);
-        double b = conglomerate.getValue(bo);
+        double a = valueMap.get(ao);
+        double b = valueMap.get(bo);
 
         return (a < b ? -1 : (a==b ? 0 : 1));
     }

@@ -1,22 +1,23 @@
 package de.laurenzgrote.bundeswettbewerb35.rosinen.util;
 
-import de.laurenzgrote.bundeswettbewerb35.rosinen.Conglomerate;
 import java.util.*;
 import java.util.BitSet;
+
+import static java.lang.Math.sqrt;
 
 public class BufferedSet {
     private Stack<BitSet> stack = new Stack<>();
     private Set<BitSet> set = new HashSet<>();
-    private long maxItemCount;
-    private Conglomerate conglomerate;
+    private int maxItemCount;
+    private Map<BitSet, Double> valueMap = new HashMap<>();
 
-    public BufferedSet(long maxBits, int bitsPerItem, Conglomerate conglomerate) {
+    public BufferedSet(int maxBits, int bitsPerItem) {
         maxItemCount = maxBits/bitsPerItem;
-        this.conglomerate = conglomerate;
     }
 
-    public void put (BitSet value) {
-        stack.push(value);
+    public void put (BitSet bitSet, double value) {
+        stack.push(bitSet);
+        valueMap.put(bitSet, value);
     }
 
     public void flushBuffer() {
@@ -31,9 +32,9 @@ public class BufferedSet {
             //noinspection unchecked
             BitSet sortedContents[] = set.toArray(new BitSet[set.size()]);
             //noinspection unchecked
-            Arrays.parallelSort(sortedContents, new BitSetComparator(conglomerate));
+            Arrays.parallelSort(sortedContents, new BitSetComparator(valueMap));
             set.clear();
-            for (int i = sortedContents.length - 1; i > sortedContents.length - 0.1*maxItemCount; i--) {
+            for (int i = sortedContents.length - 1; i > sortedContents.length - sqrt(maxItemCount); i--) {
                 set.add(sortedContents[i]);
             }
         }

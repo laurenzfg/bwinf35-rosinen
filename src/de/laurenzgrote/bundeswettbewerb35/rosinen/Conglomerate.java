@@ -118,7 +118,7 @@ public class Conglomerate {
         // Duden sagt es heißt Status, aber das ist mir egal
         // Wer kann dan noch unterscheiden ob es Plural oder Singular ist?
         // Deutsch ist nichtdeterministisch!
-        BufferedSet bufferedSet = new BufferedSet((long) Math.round(64*Math.pow(10,6)), companyCount, this); //4e+9 = 500MByte
+        BufferedSet bufferedSet = new BufferedSet((int) Math.round(64*Math.pow(10,6)), companyCount); //4e+9 = 500MByte
 
         // Initialer gekaufte Firmen sind die Teilmengen, ausschließlich Positive Firmen beinhalten
         // Weil warum sollte man die nicht haben wollen?
@@ -127,13 +127,14 @@ public class Conglomerate {
             if (onlyPositiveCompanys[i])
                 winWinMenge.or(connectedCompanys[i]);
         }
+        double winWinWert = getValue(winWinMenge);
 
         // Das ist dann der erste bekannte Status
-        bufferedSet.put(winWinMenge);
+        bufferedSet.put(winWinMenge, winWinWert);
         bufferedSet.flushBuffer(); // Schreiben des Buffers ins Set
 
         // Wert der besten Teilmenge + entsprechende Teilmenge muss seperat gespeichert werden
-        double bestCombinationValue = getValue(winWinMenge);
+        double bestCombinationValue = winWinWert;
         BitSet bestCombinationCompanys = winWinMenge;
 
         // Zu beachtende Mengen bestimmen (PM)
@@ -155,7 +156,7 @@ public class Conglomerate {
                 // Berechnen des Wertes der neuen Teilmenge
                 double combinedBSValue = getValue(newSubset);
                 // Neue Teilemenge auf die Schreibliste der BufferedSet setzen
-                bufferedSet.put(newSubset);
+                bufferedSet.put(newSubset, combinedBSValue);
                 // Haben wir ein neues Maximum gefunden?
                 if (combinedBSValue > bestCombinationValue) {
                     // Weil dann sollten wir das speichern
