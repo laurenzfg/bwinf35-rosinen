@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * Repraesentation eines Firmenkonglemerates
  */
-class Conglomerate {
+public class Conglomerate {
     // Anzahl der Firmen im Konglomerat
     private int companyCount;
     // Repräsentation einer Firma im Speicjher
@@ -72,7 +72,7 @@ class Conglomerate {
      * @param of Ausgangsfirma
      * @return Liste der von of unmittelbar abhängigen Firmen
      */
-    private List<Integer> getDependentCompanys(int of) {
+    public List<Integer> getDependentCompanys(int of) {
         return companys[of].getDependencys();
     }
 
@@ -80,7 +80,7 @@ class Conglomerate {
      * @param of Ausgangsfirma
      * @return Einzelwert der Firma of
      */
-    private double getImmediateValue(int of) {
+    public double getImmediateValue(int of) {
         return companys[of].getValue();
     }
 
@@ -88,7 +88,7 @@ class Conglomerate {
      * @param of Ausgangsfirma
      * @return Wert einer Firma unter Berücksichtigung all ihrer Abhängigkeiten
      */
-    private double getImpliedValue(int of) {
+    public double getImpliedValue(int of) {
         // Vorberechnete vollständige Abhängigkeitsliste laden
         BitSet companys = connectedCompanys[of];
         // Wert dieser Liste berechnen
@@ -99,7 +99,7 @@ class Conglomerate {
      * @param bs vollständie Abhängigkeitsliste
      * @return Wert der vollständigen Abhängigkeitsliste
      */
-    private double getValue(BitSet bs) {
+    public double getValue(BitSet bs) {
         // Counter
         double val = 0;
         // Alle Firmen, die in der Abhängikeitsliste enthalten sind auf den Counter aufaddieren
@@ -113,56 +113,58 @@ class Conglomerate {
      * Berechnen der besten Teilmenge
      * @return Beste Teilmenge im BwInf-Ausgabeformat
      */
-    String bestBuy() {
+    public String bestBuy() {
         // Wir brauchen für diese vollständige Suche ein Liste der bekannten Statusse
         // Duden sagt es heißt Status, aber das ist mir egal
         // Wer kann dan noch unterscheiden ob es Plural oder Singular ist?
         // Deutsch ist nichtdeterministisch!
-        BufferedSet<BitSet> bufferedSet = new BufferedSet<>();
+        BufferedSet bufferedSet = new BufferedSet((long) Math.round(64*Math.pow(10,6)), companyCount, this); //4e+9 = 500MByte
 
         // Initialer gekaufte Firmen sind die Teilmengen, ausschließlich Positive Firmen beinhalten
         // Weil warum sollte man die nicht haben wollen?
-        BitSet initialStatus = new BitSet(companyCount); // Starten ohne Firmen
-        for (int i = 0; i < companyCount; i++) {
+        BitSet winWinMenge = new BitSet(companyCount); // Starten ohne Firmen
+        for (int i = 0; i < companyCount; i++) { // Verknüpfen mit den 100% Postivien Firmen
             if (onlyPositiveCompanys[i])
-                initialStatus.or(connectedCompanys[i]);
+                winWinMenge.or(connectedCompanys[i]);
         }
 
         // Das ist dann der erste bekannte Status
-        bufferedSet.put(initialStatus);
+        bufferedSet.put(winWinMenge);
         bufferedSet.flushBuffer(); // Schreiben des Buffers ins Set
 
         // Wert der besten Teilmenge + entsprechende Teilmenge muss seperat gespeichert werden
-        double bestCombinationValue = getValue(initialStatus);
-        BitSet bestCombinationCompanys = initialStatus;
+        double bestCombinationValue = getValue(winWinMenge);
+        BitSet bestCombinationCompanys = winWinMenge;
 
-        // Für jede Firma
-        for (int i = 0; i < companyCount; i++) {
-            // Eine Firma mit negativen direkten Wert oder ohne Wert zu kaufen macht keinen Sinn
-            // Und Teilmengen nur aus positiven Firmen
-            if (getImmediateValue(i) > 0 && !onlyPositiveCompanys[i]) {
-                // Entsprechende Dependencys laden
-                BitSet selectedPurchase = connectedCompanys[i];
-                // Und mit allen bisher errechneten Statussen logisch verknüpfen
-                for (BitSet bs : bufferedSet.getSet()) {
-                    // Bisher errechneten Status klonen
-                    BitSet newSubset = (BitSet) bs.clone();
-                    // Verknüpfen der beiden Käufe
-                    newSubset.or(selectedPurchase);
-                    // Berechnen des Wertes der neuen Teilmenge
-                    double combinedBSValue = getValue(newSubset);
-                    // Neue Teilemenge auf die Schreibliste der BufferedSet setzen
-                    bufferedSet.put(newSubset);
-                    // Haben wir ein neues Maximum gefunden?
-                    if (combinedBSValue > bestCombinationValue) {
-                        // Weil dann sollten wir das speichern
-                        bestCombinationValue = combinedBSValue;
-                        bestCombinationCompanys = newSubset;
-                    }
+        // Zu beachtende Mengen bestimmen (PM)
+        // Eine Firma mit negativen direkten Wert oder ohne Wert zu kaufen macht keinen Sinn
+        // Und Teilmengen nur aus positiven Firmen
+        ArrayList<BitSet> pm = new ArrayList<>();
+        for (int i = 0; i <companyCount; i++)
+            if (getImmediateValue(i) > 0 && !onlyPositiveCompanys[i])
+                pm.add(connectedCompanys[i]);
+
+        // Für jede Firma aus pm
+        for (BitSet selectedPurchase : pm) {
+            // Und mit allen bisher errechneten Statussen logisch verknüpfen
+            for (BitSet bs : bufferedSet.getSet()) {
+                // Bisher errechneten Status klonen
+                BitSet newSubset = (BitSet) bs.clone();
+                // Verknüpfen der beiden Käufe
+                newSubset.or(selectedPurchase);
+                // Berechnen des Wertes der neuen Teilmenge
+                double combinedBSValue = getValue(newSubset);
+                // Neue Teilemenge auf die Schreibliste der BufferedSet setzen
+                bufferedSet.put(newSubset);
+                // Haben wir ein neues Maximum gefunden?
+                if (combinedBSValue > bestCombinationValue) {
+                    // Weil dann sollten wir das speichern
+                    bestCombinationValue = combinedBSValue;
+                    bestCombinationCompanys = newSubset;
                 }
-                // Schreiben des Buffers ins Set
-                bufferedSet.flushBuffer();
             }
+            // Schreiben des Buffers ins Set
+            bufferedSet.flushBuffer();
         }
 
         // Output-Teil
