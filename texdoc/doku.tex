@@ -1,9 +1,10 @@
-\documentclass[a4paper, DIV=12, firstfoot=false]{scrreprt}
+\documentclass[a4paper, DIV=12, firstfoot=false, dvipsnames]{scrreprt}
 \usepackage{scrlayer-scrpage}
 
 % Umlaute und Font-Encoding
 \usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[gen]{eurosym}
 
 % Deutsch
 \usepackage[ngerman]{babel}
@@ -23,7 +24,38 @@
 \graphicspath{{Grafiken/}}
 \usepackage{wrapfig}
 \usepackage{tikz}
-\usetikzlibrary{graphs}
+\usetikzlibrary{graphs, shapes}
+
+% Listings
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{language={Java},
+        numbers=left,
+        stepnumber=1,
+        numbersep=5pt,
+        numberstyle=\tiny,
+        breaklines=true,
+        breakautoindent=true,
+        postbreak=\space,
+        tabsize=2,
+        basicstyle=\ttfamily\footnotesize,
+        showspaces=false,
+        showstringspaces=false,
+        extendedchars=true,
+        commentstyle=\color{Gray}, % comment color
+    	keywordstyle=\color{Bittersweet}, % keyword color
+    	stringstyle=\color{OliveGreen}, % string color
+        % Sorgt dafür, dass das Paket listings auch mit den Sonderzeichen in UTF-8 zurecht kommt.
+				literate=
+					{Ö}{{\"O}}1
+					{Ä}{{\"A}}1
+					{Ü}{{\"U}}1
+					{ß}{{\ss}}2
+					{ü}{{\"u}}1
+					{ä}{{\"a}}1
+					{ö}{{\"o}}1
+					{€}{{\euro{}}}1
+        }
 
 % Coole Links im PDF
 \usepackage[hidelinks]{hyperref}
@@ -49,6 +81,15 @@
 	\tableofcontents
 	\vspace {2em}
 	Meine Umsetzung für "`\task{}"' erfolgte unter Linux mit Java (OpenJDK 1.8). Ich habe Ihnen den Programmcode sowie eine ausführbare .jar-Datei beigelegt.
+
+	Wenn Sie das Programm ohne Parameter ausführen, startet der interaktive Modus, in dem Sie Parameter verstellen können und den Pfad per GUI auswählen können.
+
+	Wenn Sie eine Eingabedatei als ersten Parameter angeben, gibt das Programm das Ergebnis unter Verwendung von Standardparametern auf die Konsole aus.
+
+	\vfill{}
+	\textbf{Abstract}:
+	Der Algorithmus interpretiert die Auswahl von Firmen als einen binären Baum. Mithilfe von verschiedenen Beobachtungen werden einige Firmen vorab in die Menge der gewählten Firmen aufgenommen oder von der Menge der gewählten Firmen ausgeschlossen. Falls es in angemessener Rechenzeit möglich ist, den Baum aufzustellen, wird der Baum vollständig aufgebaut. Der Algorithmus ist dann vom Typ "`Vollständige Suche"'. Sollte es nicht möglich sein, in angemessener Rechenzeit den Baum aufzubauen, werden einzelne Knoten des Baumes verworfen. In diesem Fall wird der Baum nur Teilweise aufgebaut, der Algorithmus ist dann vom Typ "`Heuristik"' 
+
 	\pagebreak
 	% ----------------------------------------------------------------------------
 	\chapter{Lösungsidee}
@@ -59,4 +100,6 @@
 			\input{laufzeit.tex}
 	\chapter{Beispiele}
 		\input{beispiele.tex}
+	\chapter{Quellcodelistings}
+		\input{listings.tex}
 \end{document}

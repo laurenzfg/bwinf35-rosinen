@@ -24,3 +24,4 @@
 96
 97
 98
+# Anzahl der Heuristikaufrufe: 0

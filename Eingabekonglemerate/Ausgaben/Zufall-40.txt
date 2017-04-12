@@ -34,3 +34,4 @@
 36
 37
 38
+# Anzahl der Heuristikaufrufe: 0

@@ -3,3 +3,4 @@
 # Gesamtwert der Knoten
 0.0
 # Nummern der Knoten
+# Anzahl der Heuristikaufrufe: 0
