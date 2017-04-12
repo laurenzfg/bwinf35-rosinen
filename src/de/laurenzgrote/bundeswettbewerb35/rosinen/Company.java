@@ -7,11 +7,11 @@ import java.util.List;
 /**
  * Repräsentation einer Firma eines Konglomerates
  */
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings("WeakerAccess") // Standard POJO, daher alles Public
 public class Company {
     private int id;
-    private double value;
-    private List<Integer> dependencys;
+    private double value; // Wert d. Firma einzelnd betrachtet
+    private List<Integer> dependencys; // Adhazenzliste
 
     public Company(int id, double value) {
         this.id = id;
@@ -19,7 +19,7 @@ public class Company {
 
         dependencys = new ArrayList<>();
     }
-
+    
     public void addDependency (int which) {
         dependencys.add(which);
     }

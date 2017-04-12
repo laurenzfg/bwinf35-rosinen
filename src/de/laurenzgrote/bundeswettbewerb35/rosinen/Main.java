@@ -38,6 +38,7 @@ public class Main {
         int returnVal = fileChooser.showOpenDialog(null);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File inputFile = fileChooser.getSelectedFile();
+            // Einlesen von Heuristik-Konstanten von der BASH
             int heuristicMaxItemCount,  heuristicPercentage;
             System.out.println("Maximale Setgröße für Heuristik angeben: [100000]");
             String answer = console.readLine();
@@ -55,10 +56,14 @@ public class Main {
                 heuristicPercentage = Integer.parseInt(answer);
             }
 
+            // Erzeugen des Konglomerates
             Conglomerate conglomerate = conglomerateFromFile(inputFile, heuristicMaxItemCount, heuristicPercentage);
+
+            // Berechnen und ausgeben der besten Teilmenge
             String bestBuy = conglomerate.bestBuy();
             System.out.println(bestBuy);
 
+            // Ggfs. beste Teilmenge in Textdatei schreiben
             System.out.print("Ideale Teilmenge Speichern (y/n): ");
             if (console.readLine().charAt(0) == 'y') {
                 returnVal = fileChooser.showSaveDialog(null);
@@ -76,14 +81,21 @@ public class Main {
         }
     }
 
+    /**
+     * Erzeugt ein Firmenkongloemrat aus einer Datei
+     * @param file Eingabedatei
+     * @param heuristicMaxItemCount Anzahl der Zwischenergebnisse bei der die Heuristik getriggert wird
+     * @param heuristicPercentage Prozent der Zwischenergebnisse die beibehalten wird
+     * @return Firmengkonglomerat
+     */
     private static Conglomerate conglomerateFromFile(File file, int heuristicMaxItemCount, int heuristicPercentage) {
         Conglomerate c = null;
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
-            @SuppressWarnings("ConstantConditions")
+            @SuppressWarnings("ConstantConditions") // Wird schon schiefgehn
             int companyCount = Integer.parseInt(getNextLine(br));
-            Company[] companys = new Company[companyCount];
-            // Firmen mit Wert
+            Company[] companys = new Company[companyCount]; // Array für die Firmen
+            // Firmen mit Wert einlesen
             for (int i = 0; i < companyCount; i++) {
                 String line = getNextLine(br);
                 String[] lineSplit = line.split(" ");
@@ -91,8 +103,9 @@ public class Main {
                 double val = Double.parseDouble(lineSplit[1]);
                 companys[id] = new Company(id, val);
             }
-            // Dependencies
+            // Nebenbedingungen einlesen
             String line = getNextLine(br);
+            // --> bis zum Ende der Datei
             while (line != null) {
                 String[] lineSplit = line.split(" ");
                 int ifYouBuyThat = Integer.parseInt(lineSplit[0]);
@@ -109,6 +122,13 @@ public class Main {
         }
         return c;
     }
+
+    /**
+     * Helper der aus einem BufferedReader die nächste Zeile, die kein Kommentar ist liefert
+     * @param br BufferedReader
+     * @return Nächste Zeile oder null, wenn das Ende des Readers erreicht ist
+     * @throws IOException
+     */
     private static String getNextLine (BufferedReader br) throws IOException {
         try {
             String line;

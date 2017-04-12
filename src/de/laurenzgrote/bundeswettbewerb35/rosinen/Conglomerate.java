@@ -63,12 +63,12 @@ public class Conglomerate {
                     // Und setze alle von ihr abhängigen Firmen auf den Zu-Besuchen-Stack
                     s.addAll(getDependentCompanys(cur));
                     if (getImmediateValue(cur) < 0)
-                        onlyPositive = false;
+                        onlyPositive = false; // Firma mit negativem Gewicht gefunden
                 }
             }
             // Speichern des DFS-Visited-Arrays im entsprechenden Feld der Klasse
             connectedCompanys[of] = includedCompanys;
-            // Speichern des impliziten Gesamtwertes
+            // Speichern, ob Firmen mit negativem Gewicht enthalten sind
             onlyPositiveCompanys[of] = onlyPositive;
         }
     }
@@ -77,7 +77,7 @@ public class Conglomerate {
      * @param of Ausgangsfirma
      * @return Liste der von of unmittelbar abhängigen Firmen
      */
-    public List<Integer> getDependentCompanys(int of) {
+    private List<Integer> getDependentCompanys(int of) {
         return companys[of].getDependencys();
     }
 
@@ -85,7 +85,7 @@ public class Conglomerate {
      * @param of Ausgangsfirma
      * @return Einzelwert der Firma of
      */
-    public double getImmediateValue(int of) {
+    private double getImmediateValue(int of) {
         return companys[of].getValue();
     }
 
@@ -93,7 +93,7 @@ public class Conglomerate {
      * @param of Ausgangsfirma
      * @return Wert einer Firma unter Berücksichtigung all ihrer Abhängigkeiten
      */
-    public double getImpliedValue(int of) {
+    private double getImpliedValue(int of) {
         // Vorberechnete vollständige Abhängigkeitsliste laden
         BitSet companys = connectedCompanys[of];
         // Wert dieser Liste berechnen
@@ -104,10 +104,10 @@ public class Conglomerate {
      * @param bs vollständie Abhängigkeitsliste
      * @return Wert der vollständigen Abhängigkeitsliste
      */
-    public double getValue(BitSet bs) {
-        // Counter
+    private double getValue(BitSet bs) {
+        // Counter für Gesamtwert
         double val = 0;
-        // Alle Firmen, die in der Abhängikeitsliste enthalten sind auf den Counter aufaddieren
+        // Wert aller Firmen, die in der Abhängikeitsliste enthalten sind auf den Counter aufaddieren
         for (int i = 0; i < companyCount; i++)
             if (bs.get(i))
                 val += getImmediateValue(i);
@@ -125,38 +125,39 @@ public class Conglomerate {
         // Deutsch ist nichtdeterministisch!
         BufferedMap bufferedMap = new BufferedMap(heuristicMaxItemCount, heuristicPercentage);
 
-        // Initialer gekaufte Firmen sind die Teilmengen, ausschließlich Positive Firmen beinhalten
-        // Weil warum sollte man die nicht haben wollen?
-        BitSet winWinMenge = new BitSet(companyCount); // Starten ohne Firmen
-        for (int i = 0; i < companyCount; i++) { // Verknüpfen mit den 100% Postivien Firmen
+        // Immer gekaufte Firmen sind die Teilmengen, ausschließlich Positive Firmen beinhalten
+        // Weil warum sollte man die nicht haben wollen? (aka "Win-Win-Menge")
+        BitSet winWinMenge = new BitSet(companyCount); // Leere Menge
+        for (int i = 0; i < companyCount; i++) { // Verknüpfen mit den 100% positivien Firmen
             if (onlyPositiveCompanys[i])
                 winWinMenge.or(connectedCompanys[i]);
         }
         double winWinWert = getValue(winWinMenge);
 
-        // Das ist dann der erste bekannte Status
+        // Das ist dann die Wurzel des binären Baumes
         bufferedMap.put(winWinMenge, winWinWert);
-        bufferedMap.flushBuffer(); // Schreiben des Buffers ins Set
+        bufferedMap.flushBuffer(); // Schreiben des Buffers in die Map
 
         // Wert der besten Teilmenge + entsprechende Teilmenge muss seperat gespeichert werden
+        // (für Ausgabe, damit die Map nicht durchsucht werden muss)
         double bestCombinationValue = winWinWert;
         BitSet bestCombinationCompanys = winWinMenge;
 
-        // Zu beachtende Mengen bestimmen (PM)
+        // Zu beachtende Firmenkäufe bestimmen (PM), (aka Firmen auf der linken Seite der Vereinigungsgleichung)
         // Eine Firma mit negativen direkten Wert oder ohne Wert zu kaufen macht keinen Sinn
-        // Und Teilmengen nur aus positiven Firmen
-        ArrayList<BitSet> pm = new ArrayList<>();
+        // Und Teilmengen nur aus positiven Firmen sind alle in der Wurzel
+        Set<BitSet> pm = new HashSet<>();
         for (int i = 0; i <companyCount; i++)
             if (getImmediateValue(i) > 0 && !onlyPositiveCompanys[i])
                 pm.add(connectedCompanys[i]);
 
         // Für jede Firma aus pm
         for (BitSet selectedPurchase : pm) {
-            // Und mit allen bisher errechneten Statussen logisch verknüpfen
+            // Kann man die mit den bisherigen Blättern d. Baumes/Statussen verknüpfen
             for (BitSet bs : bufferedMap.getSet()) {
-                // Bisher errechneten Status klonen
+                // Bisher errechneten Status klonen, weil nicht kaufen ist auch eine option
                 BitSet newSubset = (BitSet) bs.clone();
-                // Verknüpfen der beiden Käufe
+                // Verknüpfen des bisherigen Statussen mit dem neuem Kauf
                 newSubset.or(selectedPurchase);
                 // Berechnen des Wertes der neuen Teilmenge
                 double combinedBSValue = getValue(newSubset);
@@ -169,14 +170,16 @@ public class Conglomerate {
                     bestCombinationCompanys = newSubset;
                 }
             }
-            // Schreiben des Buffers ins Set
+            // Schreiben des Buffers in die Map
             bufferedMap.flushBuffer();
         }
 
+        // Feddic
         // Output-Teil
+        // Ist jetzt nicht unbedingt guter Stil das als String auszugeben, aber für die Lesbarkeit habe ich das so implementiert
         StringBuilder sb = new StringBuilder();
         sb.append("# Anzahl der Knoten in der Teilmenge\n");
-        sb.append(bestCombinationCompanys.cardinality()); // Coole Funktion oder?
+        sb.append(bestCombinationCompanys.cardinality()); // Kardinalität = Firmenzahl. Coole Eigenschaft oder?
         sb.append("\n# Gesamtwert der Knoten\n");
         sb.append(bestCombinationValue);
         sb.append("\n# Nummern der Knoten\n");
@@ -186,7 +189,7 @@ public class Conglomerate {
                 sb.append("\n");
             }
         }
-        sb.append("# Anzahl der Heuristikaufrufe: ");
+        sb.append("# Anzahl der Heuristikaufrufe: "); // Wichtig um zu wissen, ob das Ergebnis ein sicheres ist
         sb.append(bufferedMap.getHeuristikCount());
         return sb.toString();
     }

@@ -3,9 +3,12 @@ package de.laurenzgrote.bundeswettbewerb35.rosinen.util;
 import java.util.*;
 import java.util.BitSet;
 
+/**
+ * Initialisiert eine BufferedMap mit eingebauter Heuristik
+ */
 public class BufferedMap {
+    // Ein kleines Helper-POJO
     class MapEntry {
-        // Ein kleines Helper-POJO
         private BitSet k;
         private double v;
 
@@ -15,16 +18,16 @@ public class BufferedMap {
         }
     }
 
-    private Stack<MapEntry> stack = new Stack<>();
-    private Map<BitSet, Double> map = new HashMap<>();
-    private int maxItemCount;
-    private int shrinkTo;
+    private Stack<MapEntry> stack = new Stack<>(); // Buffer
+    private Map<BitSet, Double> map = new HashMap<>(); // Map
 
-    private int heuristikCount = 0;
+    private int maxItemCount; // Wann soll die Heuristik greifen?
+    private int shrinkTo; // Bis wohin soll die Map verkleinert werden
+
+    private int heuristikCount = 0; // Wie oft hat die Heuristik gegriffen
 
     /**
-     * Initialisiert eine BufferedMap mit eingebauter Heuristik
-     * @param maxItemCount Datenzahl, bei der die Heuristik greifen soll
+     * @param maxItemCount Zahl der Zwischenergebnisse, bei der die Heuristik greifen soll
      * @param percentage 0..99% der Daten werden bei einem Heuristikdurchlauf behalten
      */
     public BufferedMap(int maxItemCount, int percentage) {
@@ -34,11 +37,20 @@ public class BufferedMap {
         this.shrinkTo = (int) Math.round((double) percentage/100*maxItemCount);
     }
 
+    /**
+     * Fügt ein Item dem Buffer hinzu
+     * @param k Key
+     * @param v Value
+     */
     public void put (BitSet k, double v) {
         stack.push(new MapEntry(k, v));
     }
 
+    /**
+     * Schreibt den Buffer in die Map und führt ggfs. die Heuristik aus
+     */
     public void flushBuffer() {
+        // Schreiben
         while (!stack.empty()) {
             MapEntry mapEntry = stack.pop();
             map.put(mapEntry.k, mapEntry.v);
@@ -47,11 +59,10 @@ public class BufferedMap {
         int itemCount = map.size();
         if (itemCount > maxItemCount) {
             // Dann behalten wir nur die oberen Prozent, wie als Argument Spezifiziert
-            // SortedSet/Map geht nicht, da es gleichwertige Einträge gibt
+            // Sortieren der Keys nach Values
             BitSet sortedContents[] = map.keySet().toArray(new BitSet[0]);
-            // Sorten wir das mal auf allen Kernen durch
-            Arrays.parallelSort(sortedContents, new BitSetComparator(map));
-            // Und jetzt killen wir soviele Einträge sodass die Map shrinkTo groß ist
+            Arrays.parallelSort(sortedContents, new BitSetComparator(map)); // MultithreadingFTW
+            // Und jetzt löschen wir Einträge sodass die Map shrinkTo groß wird
             for (int i = 0; i < itemCount - shrinkTo; i++) {
                 map.remove(sortedContents[i]);
             }
@@ -60,9 +71,16 @@ public class BufferedMap {
         }
     }
 
+    /**
+     * @return Ausführungszahl der Heuristik
+     */
     public int getHeuristikCount() {
         return heuristikCount;
     }
+
+    /**
+     * @return Alle BitSets die geschrieben wurden
+     */
     public Set<BitSet> getSet() {
         return map.keySet();
     }
