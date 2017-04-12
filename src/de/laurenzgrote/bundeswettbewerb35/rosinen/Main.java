@@ -6,11 +6,14 @@ import java.io.*;
 
 public class Main {
 
+    private static final int DEFAULT_HEURISTIC_COUNT    = 50000;
+    private static final int DEFAULT_PERCENTAGE         = 50;
+
     public static void main(String[] args) throws IOException {
         if (args.length > 0) {
             // Batch-Modus
             File inputFile = new File(args[0]);
-            Conglomerate conglomerate = conglomerateFromFile(inputFile, 100000, 25);
+            Conglomerate conglomerate = conglomerateFromFile(inputFile, DEFAULT_HEURISTIC_COUNT, DEFAULT_PERCENTAGE);
             String bestBuy = conglomerate.bestBuy();
             System.out.print(bestBuy);
         } else {
@@ -40,18 +43,18 @@ public class Main {
             File inputFile = fileChooser.getSelectedFile();
             // Einlesen von Heuristik-Konstanten von der BASH
             int heuristicMaxItemCount,  heuristicPercentage;
-            System.out.println("Maximale Setgröße für Heuristik angeben: [100000]");
+            System.out.println("Maximale Setgröße für Heuristik angeben: [" + DEFAULT_HEURISTIC_COUNT + "]");
             String answer = console.readLine();
             if (answer.equals("")) {
-                heuristicMaxItemCount = 100000;
+                heuristicMaxItemCount = DEFAULT_HEURISTIC_COUNT;
             } else {
                 heuristicMaxItemCount = Integer.parseInt(answer);
             }
             System.out.println("Anzahl der zu behaltenden Zwischenergebnisse in %:" +
-                    " Bitte ohne Prozentzeichen angeben! [25]");
+                    " Bitte ohne Prozentzeichen angeben! [" + DEFAULT_PERCENTAGE + "]");
             answer = console.readLine();
             if (answer.equals("")) {
-                heuristicPercentage = 25;
+                heuristicPercentage = DEFAULT_PERCENTAGE;
             } else {
                 heuristicPercentage = Integer.parseInt(answer);
             }
