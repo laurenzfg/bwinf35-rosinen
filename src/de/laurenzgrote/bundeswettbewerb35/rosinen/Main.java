@@ -10,7 +10,7 @@ public class Main {
         if (args.length > 0) {
             // Batch-Modus
             File inputFile = new File(args[0]);
-            Conglomerate conglomerate = conglomerateFromFile(inputFile);
+            Conglomerate conglomerate = conglomerateFromFile(inputFile, 100000, 25);
             String bestBuy = conglomerate.bestBuy();
             System.out.print(bestBuy);
         } else {
@@ -38,7 +38,24 @@ public class Main {
         int returnVal = fileChooser.showOpenDialog(null);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File inputFile = fileChooser.getSelectedFile();
-            Conglomerate conglomerate = conglomerateFromFile(inputFile);
+            int heuristicMaxItemCount,  heuristicPercentage;
+            System.out.println("Maximale Setgröße für Heuristik angeben: [100000]");
+            String answer = console.readLine();
+            if (answer.equals("")) {
+                heuristicMaxItemCount = 100000;
+            } else {
+                heuristicMaxItemCount = Integer.parseInt(answer);
+            }
+            System.out.println("Anzahl der zu behaltenden Zwischenergebnisse in %:" +
+                    " Bitte ohne Prozentzeichen angeben! [25]");
+            answer = console.readLine();
+            if (answer.equals("")) {
+                heuristicPercentage = 25;
+            } else {
+                heuristicPercentage = Integer.parseInt(answer);
+            }
+
+            Conglomerate conglomerate = conglomerateFromFile(inputFile, heuristicMaxItemCount, heuristicPercentage);
             String bestBuy = conglomerate.bestBuy();
             System.out.println(bestBuy);
 
@@ -59,7 +76,7 @@ public class Main {
         }
     }
 
-    private static Conglomerate conglomerateFromFile(File file) {
+    private static Conglomerate conglomerateFromFile(File file, int heuristicMaxItemCount, int heuristicPercentage) {
         Conglomerate c = null;
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -84,7 +101,7 @@ public class Main {
                 line = getNextLine(br);
             }
             // Kongelemerat erstellen
-            c = new Conglomerate(companys);
+            c = new Conglomerate(companys, heuristicMaxItemCount, heuristicPercentage);
         } catch (IOException e) {
             System.err.println("Eingegebene Datei nicht gefunden oder sonstiger IO-Fehler!");
         } catch (NumberFormatException e) {

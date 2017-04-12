@@ -1,6 +1,6 @@
 package de.laurenzgrote.bundeswettbewerb35.rosinen;
 
-import de.laurenzgrote.bundeswettbewerb35.rosinen.util.BufferedSet;
+import de.laurenzgrote.bundeswettbewerb35.rosinen.util.BufferedMap;
 
 import java.util.*;
 
@@ -18,12 +18,17 @@ public class Conglomerate {
     // Wir speichern die Teilmengen die nur positive Firmen beinhalten
     private boolean[] onlyPositiveCompanys;
 
+    // Konstanten für die Heuristik
+    private int heuristicMaxItemCount, heuristicPercentage;
+
     /**
      * @param companys Array der Firmen
      */
-    Conglomerate(Company[] companys) {
+    Conglomerate(Company[] companys, int heuristicMaxItemCount, int heuristicPercentage) {
         this.companys = companys;
         companyCount = companys.length;
+        this.heuristicMaxItemCount = heuristicMaxItemCount;
+        this.heuristicPercentage = heuristicPercentage;
 
         // Ein BitSet für die vollständigen Abhängigkeitslisten je Firma
         connectedCompanys = new BitSet[companyCount];
@@ -118,7 +123,7 @@ public class Conglomerate {
         // Duden sagt es heißt Status, aber das ist mir egal
         // Wer kann dan noch unterscheiden ob es Plural oder Singular ist?
         // Deutsch ist nichtdeterministisch!
-        BufferedSet bufferedSet = new BufferedSet((int) Math.round(64*Math.pow(10,6)), companyCount); //4e+9 = 500MByte
+        BufferedMap bufferedMap = new BufferedMap(heuristicMaxItemCount, heuristicPercentage);
 
         // Initialer gekaufte Firmen sind die Teilmengen, ausschließlich Positive Firmen beinhalten
         // Weil warum sollte man die nicht haben wollen?
@@ -130,8 +135,8 @@ public class Conglomerate {
         double winWinWert = getValue(winWinMenge);
 
         // Das ist dann der erste bekannte Status
-        bufferedSet.put(winWinMenge, winWinWert);
-        bufferedSet.flushBuffer(); // Schreiben des Buffers ins Set
+        bufferedMap.put(winWinMenge, winWinWert);
+        bufferedMap.flushBuffer(); // Schreiben des Buffers ins Set
 
         // Wert der besten Teilmenge + entsprechende Teilmenge muss seperat gespeichert werden
         double bestCombinationValue = winWinWert;
@@ -148,15 +153,15 @@ public class Conglomerate {
         // Für jede Firma aus pm
         for (BitSet selectedPurchase : pm) {
             // Und mit allen bisher errechneten Statussen logisch verknüpfen
-            for (BitSet bs : bufferedSet.getSet()) {
+            for (BitSet bs : bufferedMap.getSet()) {
                 // Bisher errechneten Status klonen
                 BitSet newSubset = (BitSet) bs.clone();
                 // Verknüpfen der beiden Käufe
                 newSubset.or(selectedPurchase);
                 // Berechnen des Wertes der neuen Teilmenge
                 double combinedBSValue = getValue(newSubset);
-                // Neue Teilemenge auf die Schreibliste der BufferedSet setzen
-                bufferedSet.put(newSubset, combinedBSValue);
+                // Neue Teilemenge auf die Schreibliste der BufferedMap setzen
+                bufferedMap.put(newSubset, combinedBSValue);
                 // Haben wir ein neues Maximum gefunden?
                 if (combinedBSValue > bestCombinationValue) {
                     // Weil dann sollten wir das speichern
@@ -165,7 +170,7 @@ public class Conglomerate {
                 }
             }
             // Schreiben des Buffers ins Set
-            bufferedSet.flushBuffer();
+            bufferedMap.flushBuffer();
         }
 
         // Output-Teil
@@ -181,6 +186,8 @@ public class Conglomerate {
                 sb.append("\n");
             }
         }
+        sb.append("# Anzahl der Heuristikaufrufe: ");
+        sb.append(bufferedMap.getHeuristikCount());
         return sb.toString();
     }
 
