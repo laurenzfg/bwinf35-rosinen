@@ -1,0 +1,14 @@
+# 0nzahl der 10noten
+5
+# 10noten mit 6ewichten
+0 2.0
+1 -2.0
+2 1.0
+3 1.0
+4 -1.0
+# 10anten
+0 1
+1 2
+2 3
+3 4
+3 1

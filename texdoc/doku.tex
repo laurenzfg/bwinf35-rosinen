@@ -23,7 +23,9 @@
 \usepackage{graphicx}
 \graphicspath{{Grafiken/}}
 \usepackage{wrapfig}
+\usepackage{floatrow}
 \usepackage{tikz}
+\usepackage{subfig}
 \usetikzlibrary{graphs, shapes}
 
 % Listings
@@ -88,7 +90,7 @@
 
 	\vfill{}
 	\textbf{Abstract}:
-	Der Algorithmus interpretiert die Auswahl von Firmen als einen binären Baum. Mithilfe von verschiedenen Beobachtungen werden einige Firmen vorab in die Menge der gewählten Firmen aufgenommen oder von der Menge der gewählten Firmen ausgeschlossen. Falls es in angemessener Rechenzeit möglich ist, den Baum aufzustellen, wird der Baum vollständig aufgebaut. Der Algorithmus ist dann vom Typ "`Vollständige Suche"'. Sollte es nicht möglich sein, in angemessener Rechenzeit den Baum aufzubauen, werden einzelne Knoten des Baumes verworfen. In diesem Fall wird der Baum nur Teilweise aufgebaut, der Algorithmus ist dann vom Typ "`Heuristik"' 
+	Der Algorithmus interpretiert die Auswahl von Firmen als einen binären Baum. Mithilfe von verschiedenen Beobachtungen werden einige Firmen vorab in die Menge der gewählten Firmen aufgenommen oder von der Menge der gewählten Firmen ausgeschlossen. Falls es in angemessener Rechenzeit möglich ist, den Baum aufzustellen, wird der Baum vollständig aufgebaut. Der Algorithmus ist dann vom Typ "`Vollständige Suche"'. Sollte es nicht möglich sein, in angemessener Rechenzeit den Baum aufzubauen, werden einzelne Knoten des Baumes verworfen. In diesem Fall wird der Baum nur teilweise aufgebaut, der Algorithmus ist dann vom Typ "`Heuristik"'. Nebenbedingungen von Firmenauswahlen bestimmt der Algorithmus mithilfe von binärer Logik. 
 
 	\pagebreak
 	% ----------------------------------------------------------------------------
@@ -96,6 +98,7 @@
 		\input{loesungsidee.tex}
 	\chapter{Umsetzung}
 		\input{umsetzung.tex}
+		\newpage
 		\section{Überlegungen zum Laufzeitverhalten}
 			\input{laufzeit.tex}
 	\chapter{Beispiele}

@@ -1,0 +1,17 @@
+Relevant für die Beurteilung Gesamtlaufzeit sind der Baumaufbau und etwaige Heuristikdurchläufe.
+
+Wie schon in der Lösungsidee geschildert, gibt es bei meinem Programm zwei Modi. Solange eine maximale Baumgröße nicht überschritten wird, wird der Baum komplett aufgebaut.
+Da sich die Anzahl der Elemente im Baum, die mit anderen Elementen verknüpft werden müssen und von denen der Wert berechnet werden muss, sich bei jedem Durchlauf verdoppelt, gilt für diesen Codeteil eine Komplexität von \(\mathcal{O}(2^{pm})\). \(pm\) ist hierbei wie in der Lösungsidee definiert. 
+
+Sobald \(2^{pm}\) allerdings die obere Schranke der Maximalen Elementezahl überschreitet, gilt folgende Laufzeitkomplexität für den Baumaufbauteil:
+
+\begin{gather}
+	{hHeur} = max - \frac{p}{100} \times max \\
+	{nHeur} = \frac{V-max}{max} \\
+	{rem}   = h-max \bmod max \\
+	\mathcal{O}(max+nHeur\times{}(max-2^{hHeur})+(2^{hHeur + rem}-2^{rem}))
+\end{gather}
+
+Zunächst wird ein Baum von der größe max aufgebaut. Danach wird sooft wie Heuristik aufgerufen, bis der Baum verarbeitet wurde. Schlussendlich wird noch der Teilbaum für den Rest nach dem letzten Heuristikdurchlauf abufgebaut.
+
+Hinzu kommt noch die Laufzeit für den Sortieralgorithmus.

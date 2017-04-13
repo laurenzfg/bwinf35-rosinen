@@ -1,0 +1,7 @@
+# Anzahl der Knoten in der Teilmenge
+1
+# Gesamtwert der Knoten
+1.0
+# Nummern der Knoten
+6
+# Anzahl der Heuristikaufrufe: 0

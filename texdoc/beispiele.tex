@@ -1,5 +1,6 @@
-Zur Einsparung von Druckseiten gebe ich hier nur Knotenzahl, Wert und ob die Heuristik angewandt wurde tabellarisch wieder. Komplette Ausgaben finden Sie im Einsendungszip. Die Rechenzeit belief sich auf einem Intel Core i5 6500 (3,2GHz) außer bei Quadrat 13 auf circa 0,2 Sekunden je Beispiel. Quadrat 13 benötigte 1,3 Sekunden.
+Zur Einsparung von Druckseiten gebe ich hier nur Knotenzahl, Wert und ob die Heuristik angewandt wurde, tabellarisch wieder. Komplette Ausgaben finden Sie im Einsendungszip. Die Rechenzeit belief sich auf einem Intel Core i5 6500 (3,2GHz) außer bei Quadrat 13 auf circa 0,2 Sekunden je Beispiel. Quadrat 13 benötigte 1,3 Sekunden.
 
+\section {Offizielle BwInf-Beispiele}
 \begin{table}[!h]
 	\centering
     \begin{tabular}{lllll}
@@ -13,4 +14,17 @@ Zur Einsparung von Druckseiten gebe ich hier nur Knotenzahl, Wert und ob die Heu
     Heuristik  & Nein     	& Nein                 		& Nein      		& Nein      	\\
     \end{tabular}
     \caption{Ergebnisse der BwInf-Beispieleingaben}
+\end{table}
+
+\section {Beispiele von Simon Döring}
+Darüber hinaus hat der Nutzer Simon Döring im Einstieg-Informatik-Forum weitere Beispiele hochgeladen\footnote{\url{http://www.einstieg-informatik.de/community/forums/topic/502/eigene-beispiele-nr-1}}, welche ich in das Format meines Programmes konvertiert habe. Die Rechenzeiten lagen bei diesen sehr kleinen Beispielen unter 0,1 Sekunden. Die Ergebnisse deckten sich mit den erwarteten Ergebnissen. Programmausgaben finden Sie in der Einsendung.
+
+\section {Eigene Beispiele}
+Um die Laufzeit bei großen Beispielen zu ermitteln, habe ich Beispiele mit 1000, 2000, 3000, 4000 und 5000 Knoten generiert. Jedes Beispiel besitzt Knoten*10 Kanten. Auch bei diesen großen Beispielen läuft das Programm akzeptabel schnell ab. 
+\begin{table} [!h]
+    \centering
+    \begin{tabular}{l|lllll}
+    \textbf{Größe}    & 1000 & 2000 & 3000 & 4000 & 5000 \\
+    \textbf{Laufzeit} & 0,55 & 1,89 & 4,04 & 5,02 & 6,33 \\
+    \end{tabular}
 \end{table}
