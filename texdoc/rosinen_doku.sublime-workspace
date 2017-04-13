@@ -1,0 +1,1438 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ma",
+				"makesSense"
+			],
+			[
+				"grill",
+				"grill_size"
+			],
+			[
+				"b",
+				"bool"
+			],
+			[
+				"get",
+				"getID"
+			],
+			[
+				"in",
+				"input"
+			],
+			[
+				"rad",
+				"radToDeg"
+			],
+			[
+				"co",
+				"cosinus"
+			],
+			[
+				"red",
+				"radToDeg"
+			],
+			[
+				"ra",
+				"radToDeg"
+			],
+			[
+				"vi",
+				"vitamins"
+			],
+			[
+				"push",
+				"push_back"
+			],
+			[
+				"spoo",
+				"spoons_content"
+			],
+			[
+				"sp",
+				"spoon"
+			],
+			[
+				"spo",
+				"spoons_content"
+			],
+			[
+				"e",
+				"empty"
+			],
+			[
+				"s",
+				"spoon"
+			],
+			[
+				"p",
+				"push"
+			],
+			[
+				"v",
+				"vitamins"
+			],
+			[
+				"w",
+				"whichSpoon"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"int",
+				"intake"
+			],
+			[
+				"r",
+				"required"
+			],
+			[
+				"vit",
+				"vitamin_count"
+			],
+			[
+				"ab",
+				"above2"
+			],
+			[
+				"abo",
+				"above"
+			],
+			[
+				"m",
+				"max"
+			],
+			[
+				"sum",
+				"sum1"
+			],
+			[
+				"su",
+				"sum"
+			],
+			[
+				"fo",
+				"for\tFor Loop"
+			],
+			[
+				"pr",
+				"primes"
+			],
+			[
+				"c",
+				"color"
+			],
+			[
+				"kn",
+				"knotenMitMinimalerVerbindungszahl"
+			],
+			[
+				"kno",
+				"knotenMitMinimalerVerbindungszahl"
+			],
+			[
+				"ver",
+				"verbindungszahl"
+			],
+			[
+				"en",
+				"endl"
+			],
+			[
+				"table-c",
+				"table-cell"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"pad",
+				"padding-bottom"
+			],
+			[
+				"au",
+				"ausgang"
+			],
+			[
+				"h",
+				"hierHash"
+			],
+			[
+				"po",
+				"possibleSwaps"
+			],
+			[
+				"pos",
+				"possibleSwaps"
+			],
+			[
+				"aus",
+				"ausgang"
+			],
+			[
+				"a",
+				"ausgang"
+			],
+			[
+				"sw",
+				"swapAB"
+			],
+			[
+				"n",
+				"nummer"
+			],
+			[
+				"swap",
+				"swapAB"
+			],
+			[
+				"pri",
+				"print"
+			],
+			[
+				"d",
+				"diffLimit"
+			],
+			[
+				"so",
+				"sortierteAusgabe"
+			],
+			[
+				"firstAufgedecktV",
+				"firstAufgedecktVerbrauch"
+			],
+			[
+				"sec",
+				"secondAufgedeckt"
+			],
+			[
+				"firs",
+				"firstAufgedeckt"
+			],
+			[
+				"al",
+				"alpha"
+			],
+			[
+				"wp",
+				"wpaare"
+			],
+			[
+				"bu",
+				"buchstabenwerte2"
+			],
+			[
+				"buchs",
+				"buchstabenwerte1"
+			],
+			[
+				"cou",
+				"countLetters"
+			],
+			[
+				"car",
+				"cards"
+			],
+			[
+				"max",
+				"maxStart"
+			],
+			[
+				"leng",
+				"length-1"
+			],
+			[
+				"fou",
+				"foundOne"
+			],
+			[
+				"st",
+				"start"
+			],
+			[
+				"er",
+				"erlaubteZahlen"
+			],
+			[
+				"i",
+				"initial"
+			],
+			[
+				"paa",
+				"paarungen"
+			],
+			[
+				"pa",
+				"paarungen"
+			],
+			[
+				"ou",
+				"outputPaare"
+			],
+			[
+				"out",
+				"output"
+			],
+			[
+				"outp",
+				"outputPaare"
+			],
+			[
+				"par",
+				"paarungen"
+			],
+			[
+				"ne",
+				"neuePaarungen"
+			],
+			[
+				"paar",
+				"paarungen"
+			],
+			[
+				"Paa",
+				"paarungen"
+			],
+			[
+				"koor",
+				"koordArray"
+			],
+			[
+				"mo",
+				"mobile"
+			],
+			[
+				"mobi",
+				"mobileOut"
+			],
+			[
+				"mu",
+				"multiplikantOben"
+			],
+			[
+				"arra",
+				"arrayU"
+			],
+			[
+				"z",
+				"zahl"
+			],
+			[
+				"letz",
+				"letzteBeleuchtete"
+			],
+			[
+				"lat",
+				"laternenzahl"
+			],
+			[
+				"la",
+				"laternen"
+			],
+			[
+				"let",
+				"letzteBeleuchtete"
+			],
+			[
+				"le",
+				"laenge"
+			],
+			[
+				"be",
+				"bearbeite"
+			],
+			[
+				"late",
+				"laternen"
+			],
+			[
+				"si",
+				"size2"
+			],
+			[
+				"str",
+				"string"
+			],
+			[
+				"letzt",
+				"letzteStelle"
+			],
+			[
+				"kat",
+				"karten"
+			],
+			[
+				"va",
+				"value"
+			],
+			[
+				"last",
+				"lastRow"
+			],
+			[
+				"las",
+				"lastRow"
+			],
+			[
+				"for",
+				"for\tfor (…) {…} (Improved Native For-Loop)"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"paddi",
+				"padding-right"
+			],
+			[
+				"bo",
+				"border-radius"
+			],
+			[
+				"text-a",
+				"text-align"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"list-st",
+				"list-style-type"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"margi",
+				"margin-left"
+			],
+			[
+				"max-",
+				"max-width"
+			],
+			[
+				"li",
+				"link\tTag"
+			],
+			[
+				"an",
+				"angeschalteteLaternen"
+			],
+			[
+				"latee",
+				"laternenPos"
+			],
+			[
+				"mi",
+				"minAn"
+			],
+			[
+				"lam",
+				"lampenCount"
+			],
+			[
+				"res",
+				"result"
+			],
+			[
+				"ni",
+				"nichtVorhanden"
+			],
+			[
+				"nich",
+				"nichtDrin"
+			],
+			[
+				"bl",
+				"beleuchteteStellen"
+			],
+			[
+				"fa",
+				"flag"
+			],
+			[
+				"end",
+				"ende"
+			],
+			[
+				"ps",
+				"push_back"
+			],
+			[
+				"Sta",
+				"startX"
+			],
+			[
+				"beg",
+				"begin"
+			],
+			[
+				"start",
+				"startX"
+			],
+			[
+				"star",
+				"startY"
+			],
+			[
+				"sta",
+				"startX"
+			],
+			[
+				"later",
+				"laternenPos"
+			],
+			[
+				"test",
+				"testcases"
+			],
+			[
+				"rs",
+				"rsTotal"
+			],
+			[
+				"bull",
+				"bulldozedEndCosts"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "doku.tex",
+			"settings":
+			{
+				"buffer_size": 3505,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "loesungsidee.tex",
+			"settings":
+			{
+				"buffer_size": 8536,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "umsetzung.tex",
+			"settings":
+			{
+				"buffer_size": 5878,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "laufzeit.tex",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "beispiele.tex",
+			"settings":
+			{
+				"buffer_size": 1122,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "listings.tex",
+			"settings":
+			{
+				"buffer_size": 630,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Grafiken/vereinigung.tex",
+			"settings":
+			{
+				"buffer_size": 263,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/User/c11.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				"Run"
+			]
+		],
+		[
+			[
+				[
+					"Packages/User/c++_kde.sublime-build",
+					""
+				],
+				[
+					"Packages/User/c++_kde.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/User/c++_kde.sublime-build",
+				"Run"
+			]
+		],
+		[
+			[
+				[
+					"Packages/User/c11.sublime-build",
+					""
+				],
+				[
+					"Packages/User/c11.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/User/c11.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/User/c11_kde.sublime-build",
+					""
+				],
+				[
+					"Packages/User/c11_kde.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/User/c11_kde.sublime-build",
+				"Run"
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 112.0,
+		"last_filter": "lore",
+		"selected_items":
+		[
+			[
+				"lore",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"q",
+				"Git: Quick Commit (current file)"
+			],
+			[
+				"diff",
+				"Git: Diff Current File"
+			],
+			[
+				"comm",
+				"Git: Quick Commit (current file)"
+			],
+			[
+				"build",
+				"Build With: c11"
+			],
+			[
+				"rest",
+				"Git: Reset (hard) HEAD"
+			],
+			[
+				"html",
+				"Snippet: html"
+			],
+			[
+				"reset",
+				"Git: Reset (hard) HEAD"
+			],
+			[
+				"prv",
+				"Snippet: Read File Into Vector"
+			],
+			[
+				"qui",
+				"Git: Quick Commit (current file)"
+			],
+			[
+				"lint",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"run ",
+				"Build With: c11_kde - Run"
+			],
+			[
+				"run",
+				"Build With: c11_kde - Run"
+			],
+			[
+				"linter",
+				"SublimeLinter: Choose Gutter Theme"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"enab",
+				"Package Control: Enable Package"
+			],
+			[
+				"Package Control: d",
+				"Package Control: Disable Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"quic",
+				"Git: Quick Commit (current file)"
+			],
+			[
+				"Quic",
+				"Git: Quick Commit (current file)"
+			],
+			[
+				"git diff",
+				"Git: Diff Current File"
+			],
+			[
+				"quick",
+				"Git: Quick Commit (current file)"
+			],
+			[
+				"branch",
+				"Git: Change Branch"
+			],
+			[
+				"git pull",
+				"Git: Pull"
+			],
+			[
+				"branc",
+				"Git: Track Remote Branch"
+			],
+			[
+				"amen",
+				"Git: Amend Commit"
+			],
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"commit",
+				"Git: Quick Commit (current file)"
+			],
+			[
+				"commi",
+				"Git: Commit"
+			],
+			[
+				"math",
+				"Snippet: Display Math — \\[ … \\]"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"y",
+				"Ycmd: Create HMAC keys"
+			],
+			[
+				"snipp",
+				"Snippet: Display Math — \\[ … \\]"
+			],
+			[
+				"pq",
+				"Snippet: pq"
+			],
+			[
+				"Snippet: ",
+				"Snippet: Itemize"
+			],
+			[
+				"status",
+				"Git: Status"
+			],
+			[
+				"git st",
+				"Git: Show Tags"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/lgrote/Documents/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Rosinen/Eingabekonglemerate/start.sh",
+		"/home/lgrote/Documents/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Rosinen/texdoc/Grafiken/binbaum.tex",
+		"/home/lgrote/Documents/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Rosinen (Neu)/Eingabekonglemerate/start.sh",
+		"/home/lgrote/Documents/Wettbewerbe/GCJ/Round I/pancakes.cpp",
+		"/home/lgrote/Documents/Wettbewerbe/GCJ/Round I/bathroom.cpp",
+		"/home/lgrote/Documents/Wettbewerbe/GCJ/Round I/small.in",
+		"/home/lgrote/Documents/Wettbewerbe/GCJ/Round I/small2.in",
+		"/home/lgrote/Documents/Wettbewerbe/GCJ/Round I/tidy.cpp",
+		"/home/lgrote/Documents/Wettbewerbe/GCJ/Round I/out.out",
+		"/home/lgrote/Documents/Privat/Facharbeit/besuch.tex",
+		"/home/lgrote/.bashrc",
+		"/home/lgrote/Scripts/knock.sh",
+		"/home/lgrote/Documents/Privat/Facharbeit/anhang.tex",
+		"/home/lgrote/Documents/Privat/Facharbeit/marshallplan.tex",
+		"/home/lgrote/Documents/Privat/Facharbeit/fazit.tex",
+		"/home/lgrote/Documents/Privat/Facharbeit/epa.tex",
+		"/home/lgrote/Documents/Privat/Facharbeit/handelspolitik.tex",
+		"/home/lgrote/Documents/Privat/Facharbeit/handelsstrategien.tex",
+		"/home/lgrote/Documents/Privat/Facharbeit/aspekte.tex",
+		"/home/lgrote/Documents/Privat/Facharbeit/einleitung.tex",
+		"/home/lgrote/Documents/Privat/Facharbeit/facharbeit.tex",
+		"/run/media/laurenzg/fabbd184-99a9-426e-9a79-d397311a247c/packages.txt",
+		"/home/laurenzg/Documents/Kunden/Weltladen Esperanza/weltladenpws.txt",
+		"/run/user/1000/gvfs/ftp:host=fritz.box,user=lgrote/Dokumente/FRITZ-NAS.txt",
+		"/home/laurenzg/Facharbeit Old/epa.tex",
+		"/home/laurenzg/Documents/Facharbeit/epa.tex",
+		"/home/laurenzg/Documents/Facharbeit/facharbeit.tex",
+		"/home/laurenzg/Documents/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Kreiscode/Kreiscode/texdoc/doku.tex",
+		"/home/laurenzg/Documents/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Kreiscode/Kreiscode/texdoc/mittelpunkte.tex",
+		"/home/laurenzg/Documents/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Kreiscode/Kreiscode/texdoc/dekod.tex",
+		"/home/laurenzg/Documents/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Kreiscode/Kreiscode/texdoc/mittelpunkte.cpp",
+		"/home/laurenzg/Documents/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Kreiscode/Kreiscode/texdoc/segmentgrafik.tex",
+		"/home/laurenzg/Documents/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Kreiscode/Kreiscode/texdoc/allepunkte.tex",
+		"/home/laurenzg/Documents/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Kreiscode/Kreiscode/texdoc/swbild.tex",
+		"/home/laurenzg/Documents/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Kreiscode/Kreiscode/texdoc/dims.tex",
+		"/home/laurenzg/Downloads/nextcloud-11.0.2.tar.bz2.sha256",
+		"/home/laurenzg/Desktop/Eratosthenes.java",
+		"/home/laurenzg/Documents/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Kreiscode/Kreiscode/texdoc/punktegenerator.cpp",
+		"/home/laurenzg/Documents/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Kreiscode/Kreiscode/texdoc/geradengleichungen.tex",
+		"/home/laurenzg/Documents/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Kreiscode/Kreiscode/texdoc/spidergrafik.tex",
+		"/home/laurenzg/Documents/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Kreiscode/Kreiscode/texdoc/fotos.tex",
+		"/home/laurenzg/Documents/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Kreiscode/Kreiscode/texdoc/swbild.tex.aux",
+		"/home/laurenzg/Documents/Facharbeit/anhang.tex",
+		"/home/laurenzg/Documents/Facharbeit/aspekte.tex",
+		"/home/laurenzg/Documents/Facharbeit/besuch.tex",
+		"/home/laurenzg/Documents/Facharbeit/einleitung.tex",
+		"/home/laurenzg/Documents/Facharbeit/handelspolitik.tex",
+		"/home/laurenzg/Documents/Facharbeit/handelsstrategien.tex",
+		"/home/laurenzg/Documents/Facharbeit/literatur_2.bib",
+		"/home/laurenzg/Documents/Facharbeit/marshallplan.tex",
+		"/home/laurenzg/Documents/Facharbeit/fazit.tex",
+		"/home/laurenzg/.duply/s3backup/conf",
+		"/home/laurenzg/backup.sh",
+		"/home/laurenzg/Downloads/nextcloud/.htaccess",
+		"/home/laurenzg/Downloads/AWSKey.pem",
+		"/run/media/laurenzg/pgpCA/ct_pgpCA/secring.gpg",
+		"/run/media/laurenzg/pgpCA/ct_pgpCA/liesmich.txt",
+		"/home/laurenzg/Documents/Wettbewerbe/BwInf/BwInf 2016/1. Runde/Radfahrspass/Beispiele/parcours11.txt",
+		"/home/laurenzg/Documents/Privat/Algorithmensammlung (C)/examples/1m.txt",
+		"/home/laurenzg/Facharbeit/laurenzgrote.de",
+		"/home/laurenzg/Facharbeit/handelspolitik.tex",
+		"/home/laurenzg/Facharbeit/aspekte.tex",
+		"/home/laurenzg/Facharbeit/einleitung.tex",
+		"/home/laurenzg/Facharbeit/facharbeit.tex",
+		"/home/laurenzg/Facharbeit/handelsstrategien.tex",
+		"/home/laurenzg/Facharbeit/fazit.tex",
+		"/home/laurenzg/Facharbeit/marshallplan.tex",
+		"/home/laurenzg/Facharbeit/Quellen/Handel/attac.txt",
+		"/home/laurenzg/Facharbeit/Quellen/Handel/SZ Deaton Zitatskanditat.txt",
+		"/home/laurenzg/Projekte/Wettbewerbe/IOI/IOI-Quali 2017/Lehrgang Bonn/Day 2/exam.cpp",
+		"/home/laurenzg/Projekte/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Kreiscode/Kreiscode/.gitignore",
+		"/home/laurenzg/Desktop/old.java",
+		"/home/laurenzg/Projekte/Wettbewerbe/IOI/SKILLZ/Inhaltsverzeichnis.txt",
+		"/home/laurenzg/Projekte/Wettbewerbe/IOI/Lehrgangsfolien (2017)/STL/STL.tex",
+		"/home/laurenzg/Projekte/Wettbewerbe/USACO/USACO Training/Section 2.1/holstein.in",
+		"/home/laurenzg/Projekte/Wettbewerbe/USACO/USACO Training/Section 2.1/holstein.cpp",
+		"/home/laurenzg/Projekte/Wettbewerbe/USACO/USACO Training/Section 2.1/holstein.out",
+		"/home/laurenzg/Projekte/Wettbewerbe/USACO/USACO Training/template.cpp",
+		"/home/laurenzg/Facharbeit/epa.tex",
+		"/usr/share/applications/exo-terminal-emulator.desktop",
+		"/home/laurenzg/Projekte/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Rosinen/Rosinen/.gitignore",
+		"/home/laurenzg/Projekte/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Rosinen/Eingabekonglemerate/Zufall-7.txt",
+		"/home/laurenzg/Projekte/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Rosinen/Eingabekonglemerate/Zufall-7 (no single).txt",
+		"/home/laurenzg/Projekte/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Rosinen/Eingabekonglemerate/Zufall-40.txt",
+		"/home/laurenzg/Facharbeit/Quellen/attac.txt",
+		"/home/laurenzg/Projekte/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Rosinen/Eingabekonglemerate/ausgabeformat.txt",
+		"/home/laurenzg/Projekte/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Rosinen/Eingabekonglemerate/Quadrat-6.txt",
+		"/home/laurenzg/Projekte/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Rosinen/Eingabekonglemerate/Kreis-8.txt",
+		"/home/laurenzg/Projekte/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Rosinen/Eingabekonglemerate/Quadrat-8.txt",
+		"/home/laurenzg/Projekte/Wettbewerbe/USACO/USACO Training/Section 1.5/pprime.cpp",
+		"/home/laurenzg/Projekte/Wettbewerbe/USACO/USACO Training/Section 1.5/numtri.out",
+		"/home/laurenzg/Projekte/Wettbewerbe/USACO/USACO Training/Section 1.5/numtri.in",
+		"/home/laurenzg/Projekte/Wettbewerbe/USACO/USACO Training/Section 1.5/numtri.cpp",
+		"/home/laurenzg/Projekte/Wettbewerbe/USACO/USACO Training/Section 1.5/SuperPrime.cpp",
+		"/home/laurenzg/Projekte/Wettbewerbe/USACO/USACO Training/Section 1.2/Transformations/transform.cpp",
+		"/home/laurenzg/Projekte/Wettbewerbe/USACO/USACO Training/Section 1.3/Wormholes/wormhole.cpp",
+		"/home/laurenzg/Documents/Hautarztpw.txt",
+		"/tmp/xa-xmAMh9/MANIFEST.MF",
+		"/home/laurenzg/Downloads/MonteMediaCC/manifest.mf",
+		"/home/laurenzg/Facharbeit/facharbeit.fdb_latexmk",
+		"/home/laurenzg/.bash_aliases",
+		"/home/laurenzg/Projekte/Wettbewerbe/IOI/Kennenlernwettbewerb/kuenstler.cpp",
+		"/home/laurenzg/Skripte/dradio.sh",
+		"/home/laurenzg/Downloads/2.in",
+		"/home/laurenzg/Downloads/1.in",
+		"/home/laurenzg/Projekte/Wettbewerbe/IOI/Kennenlernwettbewerb/less.cpp",
+		"/home/laurenzg/Projekte/Wettbewerbe/IOI/Kennenlernwettbewerb/sum.cpp",
+		"/home/laurenzg/Projekte/Wettbewerbe/IOI/TUMJudge/Novembercontest/Laternen/laternen.cpp",
+		"/home/laurenzg/.config/sublime-text-3/Packages/User/c11.sublime-build",
+		"/tmp/xa-RuwvMK/1.in",
+		"/tmp/xa-RuwvMK/1.out",
+		"/home/laurenzg/pkglist.txt",
+		"/home/laurenzg/1.txt",
+		"/home/laurenzg/Desktop/main.css",
+		"/home/laurenzg/Desktop/basic-page.php",
+		"/home/laurenzg/Desktop/kontaktformular.php",
+		"/home/laurenzg/Projekte/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Kreiscode/Testbilder/README.txt",
+		"/home/laurenzg/Projekte/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Kreiscode/Testbilder/kreiscode-binary2ascii.txt",
+		"/home/laurenzg/umgebaut.txt",
+		"/home/laurenzg/Projekte/Kunden/Weltladen Esperanza/weltladenpws.txt",
+		"/home/laurenzg/Desktop/prot.txt",
+		"/home/laurenzg/Desktop/c.txt",
+		"/home/laurenzg/Desktop/b.txt",
+		"/home/laurenzg/Projekte/Kunden/OHG Jumbotron/node_modules/mime/types/mime.types",
+		"/home/laurenzg/Facharbeit/literatur.bib",
+		"/home/laurenzg/Desktop/Hautarztpw.txt",
+		"/home/laurenzg/ownCloud/Private Dokumente/Eliel Cheang/TagebuchNotizen.txt",
+		"/home/laurenzg/ownCloud/Private Dokumente/Eliel Cheang/TagebuchNotizen.txt/untitled"
+	],
+	"find":
+	{
+		"height": 41.0
+	},
+	"find_in_files":
+	{
+		"height": 120.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"color",
+			"\\%A4rbaum",
+			"%",
+			"Daraus folgt",
+			"eine Firma",
+			"|",
+			"l",
+			"table",
+			"geignetste",
+			"schleißlich",
+			"schleißlcih",
+			"muss",
+			"absichtlich",
+			"Transkation",
+			"groSSe",
+			"10",
+			"2^n",
+			"$1",
+			"6",
+			"Rinozelfant.jar",
+			"Kreis-8.txt",
+			".png",
+			"lokalen Mittel",
+			"lokalen",
+			"Problematisch",
+			"Zöllenversuchte",
+			"Kommentaren",
+			"Abschluss des",
+			"unsere",
+			"Ferne lösen",
+			"zu",
+			"man",
+			"IL",
+			"I",
+			"IL#",
+			"IL",
+			"der Vergangenheit",
+			"günstigen Konditionen",
+			"in Vergangenheit",
+			", zu",
+			"Deutsche",
+			"oben genannte",
+			"Blick verlieren",
+			"regierte",
+			"beitritts",
+			"rück",
+			"Agrarhandel",
+			"Agrar",
+			"Alternativen",
+			"Deutsche",
+			"soll zum",
+			"ein",
+			"wesentliche",
+			"somit gehen",
+			"wesentliche",
+			"wesdentliche",
+			"niemals",
+			", das ",
+			",das ",
+			",das",
+			"Ghana",
+			"Zöllen",
+			"müsste",
+			"In der Praxis",
+			"In der Praixs",
+			"kapitalintensiven",
+			"unter",
+			"sollten",
+			"dass",
+			"als",
+			"Nichtsdestotrotz",
+			"musste",
+			"musste.",
+			"musste",
+			"kann",
+			"§",
+			"sec:gesetz",
+			"\\pagebreak",
+			"pagebreak",
+			"Ihenen",
+			"Fünf",
+			"in Afrika setzen",
+			"in Afrika setzenj",
+			"werden.",
+			"Berlin",
+			"einfachen Bürgern",
+			"\\pagebreak",
+			"\\pagepbreak",
+			"pagepbreak",
+			"pagepbreal",
+			"dasSieb",
+			"_2",
+			"_1",
+			"1",
+			"5",
+			"22,5^{\\circ}",
+			"gather",
+			" \n",
+			"i",
+			"x",
+			"Einteilende",
+			"(n",
+			"n",
+			"k",
+			"_1",
+			"abb:trigon",
+			"trigon",
+			"}\n",
+			"22,5",
+			"22.5",
+			"k",
+			"K",
+			"k",
+			"K",
+			"k",
+			"K",
+			"k",
+			"K",
+			"k",
+			"K",
+			"k",
+			"K",
+			"k",
+			"die die",
+			"Vorschläge",
+			"Hebelung",
+			"vorsieht",
+			"Südkoreas"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"geeigneteste",
+			"schließlich"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "doku.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3505,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3066,
+								3066
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1946.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "loesungsidee.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8536,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8536,
+								8536
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 396.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "umsetzung.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5878,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5877,
+								5877
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 971.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "laufzeit.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "beispiele.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1122,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								693,
+								693
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "listings.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 630,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "Grafiken/vereinigung.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 263,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								41,
+								41
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 33.0
+	},
+	"input":
+	{
+		"height": 50.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 38.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 154.0
+	},
+	"pinned_build_system": "Packages/User/c11.sublime-build",
+	"project": "rosinen_doku.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
