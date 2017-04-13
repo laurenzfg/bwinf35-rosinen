@@ -523,7 +523,7 @@
 			"file": "doku.tex",
 			"settings":
 			{
-				"buffer_size": 3607,
+				"buffer_size": 3649,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -532,7 +532,7 @@
 			"file": "loesungsidee.tex",
 			"settings":
 			{
-				"buffer_size": 9122,
+				"buffer_size": 9188,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -541,7 +541,7 @@
 			"file": "umsetzung.tex",
 			"settings":
 			{
-				"buffer_size": 8809,
+				"buffer_size": 9461,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -550,7 +550,7 @@
 			"file": "laufzeit.tex",
 			"settings":
 			{
-				"buffer_size": 1214,
+				"buffer_size": 1401,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -559,8 +559,16 @@
 			"file": "beispiele.tex",
 			"settings":
 			{
-				"buffer_size": 1123,
+				"buffer_size": 2134,
 				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/lgrote/Documents/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Rosinen/Eingabekonglemerate/randgen.cpp",
+			"settings":
+			{
+				"buffer_size": 448,
 				"line_ending": "Unix"
 			}
 		},
@@ -569,6 +577,15 @@
 			"settings":
 			{
 				"buffer_size": 730,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Grafiken/hashmap.tex",
+			"settings":
+			{
+				"buffer_size": 888,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -586,7 +603,8 @@
 			"file": "Grafiken/binbaum.tex",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 453,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -856,6 +874,8 @@
 	},
 	"file_history":
 	[
+		"/home/lgrote/Eingabekonglomerate/randgen.cpp",
+		"/home/lgrote/Documents/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Rosinen/Eingabekonglemerate/randgen.cpp",
 		"/home/lgrote/Documents/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Rosinen/Eingabekonglemerate/start.sh",
 		"/home/lgrote/Documents/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Rosinen/texdoc/Grafiken/binbaum.tex",
 		"/home/lgrote/Documents/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Rosinen (Neu)/Eingabekonglemerate/start.sh",
@@ -981,13 +1001,11 @@
 		"/home/laurenzg/Desktop/b.txt",
 		"/home/laurenzg/Projekte/Kunden/OHG Jumbotron/node_modules/mime/types/mime.types",
 		"/home/laurenzg/Facharbeit/literatur.bib",
-		"/home/laurenzg/Desktop/Hautarztpw.txt",
-		"/home/laurenzg/ownCloud/Private Dokumente/Eliel Cheang/TagebuchNotizen.txt",
-		"/home/laurenzg/ownCloud/Private Dokumente/Eliel Cheang/TagebuchNotizen.txt/untitled"
+		"/home/laurenzg/Desktop/Hautarztpw.txt"
 	],
 	"find":
 	{
-		"height": 41.0
+		"height": 47.0
 	},
 	"find_in_files":
 	{
@@ -1002,6 +1020,15 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"Max",
+			"gleich",
+			"jeweiligen",
+			"aufgrund",
+			"aufgelistet",
+			"sind, ",
+			"ansatt",
+			"Die Bestimmung",
+			"scriptsize",
 			"displaymath",
 			"beispielsweise",
 			" \n",
@@ -1120,16 +1147,7 @@
 			"k",
 			"K",
 			"k",
-			"K",
-			"k",
-			"K",
-			"k",
-			"K",
-			"k",
-			"K",
-			"k",
-			"die die",
-			"Vorschläge"
+			"K"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -1149,7 +1167,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -1158,15 +1176,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3607,
+						"buffer_size": 3649,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3423,
-								3423
+								472,
+								472
 							]
 						],
 						"settings":
@@ -1175,10 +1193,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2439.0,
+						"translation.y": 650.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1187,15 +1205,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9122,
+						"buffer_size": 9188,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6580,
-								6580
+								8658,
+								8658
 							]
 						],
 						"settings":
@@ -1203,10 +1221,10 @@
 							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1969.0,
+						"translation.y": 1217.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1215,26 +1233,28 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8809,
+						"buffer_size": 9461,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7741,
-								7741
+								8663,
+								8663
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax"
+							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2945.0,
+						"translation.y": 4317.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1243,15 +1263,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1214,
+						"buffer_size": 1401,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								148,
-								148
+								1388,
+								1388
 							]
 						],
 						"settings":
@@ -1259,10 +1279,10 @@
 							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 465.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -1271,15 +1291,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1123,
+						"buffer_size": 2134,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								349,
-								349
+								368,
+								368
 							]
 						],
 						"settings":
@@ -1292,11 +1312,41 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 5,
+					"file": "/home/lgrote/Documents/Wettbewerbe/BwInf/BwInf 2016/2. Runde/Rosinen/Eingabekonglemerate/randgen.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 448,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
 					"file": "listings.tex",
 					"semi_transient": false,
 					"settings":
@@ -1320,11 +1370,40 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
+					"file": "Grafiken/hashmap.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 888,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								843,
+								843
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 93.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
 					"file": "Grafiken/vereinigung.tex",
 					"semi_transient": false,
 					"settings":
@@ -1336,8 +1415,8 @@
 						"selection":
 						[
 							[
-								123,
-								123
+								263,
+								263
 							]
 						],
 						"settings":
@@ -1348,35 +1427,36 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 9,
 					"file": "Grafiken/binbaum.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 453,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								432,
+								432
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax"
+							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 7,
 					"type": "text"
 				}
 			]
