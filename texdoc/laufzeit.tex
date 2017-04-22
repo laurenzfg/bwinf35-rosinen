@@ -1,9 +1,9 @@
-Relevant für die Beurteilung derGesamtlaufzeit sind der Baumaufbau und etwaige Heuristikdurchläufe.
+Relevant für die Beurteilung der Gesamtlaufzeit sind der Baumaufbau und etwaige Heuristikdurchläufe.
 
 Wie schon in der Lösungsidee geschildert, gibt es bei meinem Programm zwei Modi. Solange eine maximale Baumgröße nicht überschritten wird, wird der Baum komplett aufgebaut.
 Da sich die Anzahl der Elemente im Baum, die mit anderen Elementen verknüpft werden müssen und von denen der Wert berechnet werden muss, sich bei jedem Durchlauf verdoppelt, gilt für diesen Codeteil eine Komplexität von \(\mathcal{O}(2^{pm})\). \(pm\) ist hierbei wie in der Lösungsidee definiert. 
 
-Sobald \(2^{pm}\) allerdings die obere Schranke der maximalen Elementezahl überschreitet, gilt folgende Laufzeitkomplexität für den Baumaufbauteil:
+Sobald \(2^{pm}\) allerdings die obere Schranke der maximalen Elementzahl überschreitet, gilt folgende Laufzeitkomplexität für den Baumaufbauteil:
 
 \begin{gather}
 	{hHeur} = max - \frac{p}{100} \times max \\
@@ -12,6 +12,6 @@ Sobald \(2^{pm}\) allerdings die obere Schranke der maximalen Elementezahl über
 	\mathcal{O}(max+nHeur\times{}(max-2^{hHeur})+(2^{hHeur + rem}-2^{rem}))
 \end{gather}
 
-Zunächst wird ein Baum von der größe Max aufgebaut. Danach wird so oft die Heuristik aufgerufen, bis alle Firmen berücksichtigt wurden. Pro Heuristikdurchlauf werden soviele Knoten hinzugefügt, wie die Differenz zwischen dem nächsten Heuristikdurchlauf (max) und den übrig gelassenen Knoten beträgt. Schlussendlich wird noch der Teilbaum für den Rest nach dem letzten Heuristikdurchlauf aufgebaut.
+Zunächst wird ein Baum von der Größe Max aufgebaut. Danach wird so oft die Heuristik aufgerufen, bis alle Firmen berücksichtigt worden sind. Pro Heuristikdurchlauf werden soviel Knoten hinzugefügt, wie die Differenz zwischen dem nächsten Heuristikdurchlauf (max) und den übrig gelassenen Knoten beträgt. Schließlich wird noch der Teilbaum für den Rest nach dem letzten Heuristikdurchlauf aufgebaut.
 
-Hinzu kommt noch die Laufzeit für den Sortieralgorithmus. TODODESTODES
+Hinzu kommt noch die Laufzeit für die Sortierungen, die allerdings aufgrund der Parallelisierung stark von der Anzahl der Prozessorkerne abhängt.
