@@ -19,3 +19,5 @@ texdoc/*.cb
 texdoc/*.cb2
 texdoc/*.fdb_latexmk
 texdoc/*.pdf
+
+*sublime-workspace
